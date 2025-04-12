@@ -1,0 +1,54 @@
+{
+    "name": "HoronControls",
+    "maps": [
+        {
+            "name": "Movement",
+            "id": "a4583875-2f2b-4ec2-aa33-875ede223a06",
+            "actions": [
+                {
+                    "name": "Turn Left",
+                    "type": "Value",
+                    "id": "c8eaec3c-22f6-4385-b4fb-e4236bd6149b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Turn Right",
+                    "type": "Value",
+                    "id": "13f5730e-479d-49f1-aa27-6c46fa8ea6ed",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "861aec57-b428-4b2e-a318-19f2ee575395",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Left",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "823eca6f-cbe8-404b-aa84-c6455ed7d5bf",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Turn Right",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
