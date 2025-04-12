@@ -18,6 +18,9 @@ namespace _Scripts.CoreScene.Speech.Model
         [SerializeField]
         private List<SpeechReplicsBySituation> m_speechReplics;
 
+        [SerializeField]
+        private List<SpeechReplicsBySituation> m_haronSpeechReplics;
+        
         public List<SpeechReplicsBySituation> SpeechReplics => m_speechReplics;
     }
 
