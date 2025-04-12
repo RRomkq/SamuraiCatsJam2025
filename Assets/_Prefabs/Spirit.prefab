@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1887914308, guid: c2a99a37ef94f874fb025499671421fe, type: 3}
+  m_Sprite: {fileID: -1887914308, guid: 75d4ccf47c2831e419b67c33b6f6612b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 21649298735925609}
   - component: {fileID: 1271530688104767749}
   m_Layer: 0
-  m_Name: Ghost
+  m_Name: Spirit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +309,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 686761114, guid: c2a99a37ef94f874fb025499671421fe, type: 3}
+  m_Sprite: {fileID: 686761114, guid: 75d4ccf47c2831e419b67c33b6f6612b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

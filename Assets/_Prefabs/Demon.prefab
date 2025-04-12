@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: -1581698237, guid: c2a99a37ef94f874fb025499671421fe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.65471697, b: 0.65471697, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -157,8 +157,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1887914308, guid: c2a99a37ef94f874fb025499671421fe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -1887914308, guid: 591a4aef3b61ecb4b98f6046d8fc128d, type: 3}
+  m_Color: {r: 1, g: 0.65471697, b: 0.65471697, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 21649298735925609}
   - component: {fileID: 1271530688104767749}
   m_Layer: 0
-  m_Name: Ghost
+  m_Name: Demon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,8 +309,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 686761114, guid: c2a99a37ef94f874fb025499671421fe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 686761114, guid: 591a4aef3b61ecb4b98f6046d8fc128d, type: 3}
+  m_Color: {r: 1, g: 0.65471697, b: 0.65471697, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -394,7 +394,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 1333342241, guid: c2a99a37ef94f874fb025499671421fe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.65471697, b: 0.65471697, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -481,7 +481,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -962833941, guid: c2a99a37ef94f874fb025499671421fe, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.65471697, b: 0.65471697, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
