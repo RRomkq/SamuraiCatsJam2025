@@ -7,18 +7,16 @@
 using System;
 using System.Linq;
 using _Scripts.CoreScene.Speech.Model;
-using UnityEditor;
-using Zenject;
 
 namespace _Scripts.CoreScene.Speech
 {
-    public class SpeechSODataSource : IInitializable
+    public class SpeechSODataSource
     {
         private SpeechSO m_speechSo;
 
-        public void Initialize()
+        public SpeechSODataSource(SpeechSO mSpeechSo)
         {
-            m_speechSo = AssetDatabase.LoadAssetAtPath<SpeechSO>(SpeechSO.NAME);
+            m_speechSo = mSpeechSo;
         }
 
         public string GetRandomReplic(SpeechSituation actorSpeechSituation)

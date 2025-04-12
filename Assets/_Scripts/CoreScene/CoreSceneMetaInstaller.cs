@@ -16,9 +16,12 @@ namespace _Scripts.CoreScene
     public class CoreSceneMetaInstaller : MonoInstaller
     {
         [SerializeField] private List<SpeechActor> m_actors;
+        [SerializeField] private SpeechSO m_speechSO;
         
         public override void InstallBindings()
         {
+            Container.BindInstance(m_speechSO);
+            
             Container.BindInterfacesAndSelfTo<SpeechManager>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpeechSODataSource>().AsSingle();
             Container.BindInterfacesAndSelfTo<SpeechActorsManager>().AsSingle();

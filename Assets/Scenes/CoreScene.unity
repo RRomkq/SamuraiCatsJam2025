@@ -1998,6 +1998,7 @@ MonoBehaviour:
   - {fileID: 111293845}
   - {fileID: 509866573}
   - {fileID: 153981887}
+  m_speechSO: {fileID: 11400000, guid: fe9b2e0b484c9d843969242105b3af5c, type: 2}
 --- !u!114 &1614156792
 MonoBehaviour:
   m_ObjectHideFlags: 0
