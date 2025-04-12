@@ -13,6 +13,7 @@ namespace _Scripts.CoreScene
         private ScreenFadeController m_screenFadeController;
         private LevelModel m_levelModel;
         private LevelsData m_levelsData;
+        private GameManager m_gameManager;
         
         private int m_currentLevelIndex = 0;
         
@@ -20,12 +21,14 @@ namespace _Scripts.CoreScene
         public void Construct(PlayerMoveController playerMoveController,
             ScreenFadeController screenFadeController,
             LevelModel levelModel,
-            LevelsData levelsData)
+            LevelsData levelsData,
+            GameManager gameManager)
         {
             m_playerMoveController = playerMoveController;
             m_screenFadeController = screenFadeController;
             m_levelModel = levelModel;
             m_levelsData = levelsData;
+            m_gameManager = gameManager;
         }
 
         public void Awake()
@@ -44,9 +47,16 @@ namespace _Scripts.CoreScene
             m_currentLevelIndex++;
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
-            m_playerMoveController.GoToFirstLine();
             m_screenFadeController.AlphaTo(1, 0);
-            m_screenFadeController.AlphaTo(0, 2);
+            m_gameManager.IsLastBarricadeComplete = false;
+            StartLevelAsync().Forget();
+        }
+
+        private async UniTask StartLevelAsync()
+        {
+            await UniTask.DelayFrame(1);
+            m_playerMoveController.GoToFirstLine();
+            m_screenFadeController.AlphaTo(0, 5);
         }
     }
 }

@@ -8,6 +8,7 @@ namespace _Scripts.CoreScene.Enviroment
         private LineHandler m_lineHandler;
         private GameManager m_gameManager;
         private LevelModel m_levelModel;
+        private bool m_alreadyStart = false;
 
         [Inject]
         private void Construct(LineHandler lineHandler, LevelModel levelModel, GameManager gameManager)
@@ -19,9 +20,14 @@ namespace _Scripts.CoreScene.Enviroment
         
         private void Update()
         {
-            if (m_gameManager.ShipState == ShipState.Swimming)
+            if (m_gameManager.ShipState == ShipState.Swimming || m_alreadyStart)
             {
+                m_alreadyStart = true;
                 transform.position += m_lineHandler.DirectionToHarold * m_levelModel.Speed * Time.deltaTime;
+            }
+            else
+            {
+                
             }
         }
     }

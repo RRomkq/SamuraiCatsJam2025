@@ -14,7 +14,7 @@ public class LetSpawner: MonoBehaviour
     private LineHandler m_lineHandler;
     private bool m_isSpawning;
 
-    public GameObject barricadePrefab;
+    public List<GameObject> barricadePrefab;
     public GameObject lastBarricadePrefab;
     
 
@@ -84,7 +84,7 @@ public class LetSpawner: MonoBehaviour
             {
                 Transform line = m_lineHandler.BarricadeLines[i];
 
-                m_instantiator.InstantiatePrefab(barricadePrefab, line.position, quaternion.identity, line.transform);
+                m_instantiator.InstantiatePrefab(barricadePrefab[Random.Range(0, barricadePrefab.Count)], line.position, quaternion.identity, line.transform);
             }
         }
         
