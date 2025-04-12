@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2a99a37ef94f874fb025499671421fe
+guid: 4a54e80a2bee680438bfcb6f62117b46
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,128 +108,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: Head
-      rect:
-        serializedVersion: 2
-        x: 17
-        y: 200
-        width: 84
-        height: 99
-      alignment: 9
-      pivot: {x: 0.44993046, y: 0.20311692}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef2f95ce214df784ebedf393885c272f
-      internalID: 686761114
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Body
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 163
-        width: 77
-        height: 137
-      alignment: 9
-      pivot: {x: 0.39495888, y: 0.17141843}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bcf8fba3f9803564081dfdecbba35836
-      internalID: -962833941
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Legs
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 6
-        width: 91
-        height: 165
-      alignment: 9
-      pivot: {x: 0.45662618, y: 0.13333681}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f796b9f5232400e469853b1532b04ed4
-      internalID: -1887914308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArmL
-      rect:
-        serializedVersion: 2
-        x: 122
-        y: 18
-        width: 61
-        height: 129
-      alignment: 9
-      pivot: {x: 0.78640074, y: 0.8962573}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 47eb08cee94c30c4b88fde9e4c4a85ff
-      internalID: 1333342241
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ArmR
-      rect:
-        serializedVersion: 2
-        x: 218
-        y: 18
-        width: 43
-        height: 128
-      alignment: 9
-      pivot: {x: 0.31942785, y: 0.89682555}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce1400320a210864eb247f6a9acee97b
-      internalID: -1581698237
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 03cfcd1057c0f6b45b223a47724bc38a
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      ArmL: 1333342241
-      ArmR: -1581698237
-      Body: -962833941
-      Head: 686761114
-      Legs: -1887914308
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

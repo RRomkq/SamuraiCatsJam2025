@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c2a99a37ef94f874fb025499671421fe
+guid: 591a4aef3b61ecb4b98f6046d8fc128d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -113,10 +113,10 @@ TextureImporter:
       name: Head
       rect:
         serializedVersion: 2
-        x: 17
+        x: 14
         y: 200
-        width: 84
-        height: 99
+        width: 89
+        height: 111
       alignment: 9
       pivot: {x: 0.44993046, y: 0.20311692}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,9 +135,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 152
-        y: 163
+        y: 164
         width: 77
-        height: 137
+        height: 136
       alignment: 9
       pivot: {x: 0.39495888, y: 0.17141843}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,12 +155,12 @@ TextureImporter:
       name: Legs
       rect:
         serializedVersion: 2
-        x: 11
+        x: 9
         y: 6
-        width: 91
+        width: 93
         height: 165
       alignment: 9
-      pivot: {x: 0.45662618, y: 0.13333681}
+      pivot: {x: 0.4770402, y: 0.13725829}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
