@@ -1,4 +1,5 @@
 using System;
+using _Scripts.CoreScene.Enviroment;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
@@ -14,6 +15,9 @@ namespace _Scripts.CoreScene
         private LevelModel m_levelModel;
         private LevelsData m_levelsData;
         private GameManager m_gameManager;
+        private PirsController m_pirsController;
+        private ClickerByCircle m_clickerByCircle;
+        private FinishPirsController m_finishPirsController;
         
         private int m_currentLevelIndex = 0;
         
@@ -22,13 +26,19 @@ namespace _Scripts.CoreScene
             ScreenFadeController screenFadeController,
             LevelModel levelModel,
             LevelsData levelsData,
-            GameManager gameManager)
+            GameManager gameManager,
+            PirsController pirsController,
+            ClickerByCircle clickerByCircle,
+            FinishPirsController finishPirsController)
         {
             m_playerMoveController = playerMoveController;
             m_screenFadeController = screenFadeController;
             m_levelModel = levelModel;
             m_levelsData = levelsData;
             m_gameManager = gameManager;
+            m_pirsController = pirsController;
+            m_clickerByCircle = clickerByCircle;
+            m_finishPirsController = finishPirsController;
         }
 
         public void Awake()
@@ -49,6 +59,8 @@ namespace _Scripts.CoreScene
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
             m_screenFadeController.AlphaTo(1, 0);
             m_gameManager.IsLastBarricadeComplete = false;
+            m_pirsController.ResetPirs();
+            m_finishPirsController.ResetPirs();
             StartLevelAsync().Forget();
         }
 

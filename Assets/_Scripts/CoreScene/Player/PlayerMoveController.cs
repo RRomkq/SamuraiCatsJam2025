@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ public class PlayerMoveController : MonoBehaviour
 
     private int m_currentLine = 1;
 
+    public event Action Click;
+
     [Inject]
     public void Construct(LineHandler lineHandler)
     {
@@ -29,6 +32,7 @@ public class PlayerMoveController : MonoBehaviour
 
         controls.Movement.TurnLeft.performed += ctx => GoToLine(-1);
         controls.Movement.TurnRight.performed += ctx => GoToLine(1);
+        controls.Movement.Click.performed += ctx => Click?.Invoke();
     }
 
     private void GoToLine(int i)

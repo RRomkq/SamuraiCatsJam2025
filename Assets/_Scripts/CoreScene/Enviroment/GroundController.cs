@@ -34,7 +34,6 @@ namespace _Scripts.CoreScene.Enviroment
                 {
                     material.SetFloat("_AllSpeed", m_levelModel.GroundSpeedByLevels[(int)m_levelModel.DifficultyLevel]);
                 }
-                
             }
         }
     }

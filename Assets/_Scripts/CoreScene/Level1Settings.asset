@@ -16,7 +16,7 @@ MonoBehaviour:
   WaterFlowForce: 0.1
   SpawnBaricadesDelay: 3
   MaxSlowdownFactor: 0.1
-  Speed: 10
+  Speed: 15
   PassengersCount: 3
   BarricadesRawCount: 3
   GroundSpeedByLevel: 010000000200000003000000

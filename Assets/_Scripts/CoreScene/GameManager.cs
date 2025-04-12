@@ -11,24 +11,23 @@ namespace _Scripts.CoreScene
 
         private DateTime m_finishedTime;
         
-        private GroundController m_startGroundController;
-        private GroundController m_finishGroundController;
         private ScreenFadeController m_screenFadeController;
         private LetSpawner m_letSpawner;
         private PlayerMoveController m_playerMoveController;
+        private FinishPirsController m_finishPirsController;
         
         public ShipState ShipState { get; set; }
         public bool IsLastBarricadeComplete { get; set; } = false;
         
-        public GameManager(LevelModel levelModel, LetSpawner letSpawner, PlayerMoveController playerMoveController)
+        public GameManager(LevelModel levelModel,
+            LetSpawner letSpawner,
+            PlayerMoveController playerMoveController,
+            FinishPirsController finishPirsController)
         {
-            //m_startGroundController = groundModel.StartGroundController;
-           // m_finishGroundController = groundModel.FinishGroundController;
-
             m_levelModel = levelModel;
             m_letSpawner = letSpawner;
             m_playerMoveController = playerMoveController;
-            //m_screenFadeController = screenFadeController;
+            m_finishPirsController = finishPirsController;
         }
         
         public DateTime FinishedTime => m_finishedTime;
@@ -36,7 +35,6 @@ namespace _Scripts.CoreScene
         public void Initialize()
         {
             ShipState = ShipState.Mooring;
-            //m_startGroundController.GoToVisionPosition();
         }
         
         public void StartSwimming()
@@ -53,6 +51,7 @@ namespace _Scripts.CoreScene
         {
             ShipState = ShipState.Mooring;
             m_playerMoveController.GoToLastLine();
+            m_finishPirsController.GoPirsToVisionPosition();
         }
     }
 }

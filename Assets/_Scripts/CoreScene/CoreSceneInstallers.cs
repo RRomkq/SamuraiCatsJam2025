@@ -26,6 +26,9 @@ public class CoreSceneInstallers : MonoInstaller
         Container.Bind<LineHandler>().FromComponentInHierarchy().AsSingle();
 
         Container.Bind<LetSpawner>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PirsController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<FinishPirsController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<ClickerByCircle>().FromComponentInHierarchy().AsSingle();
     }
 
     private void UseLevelControllers()

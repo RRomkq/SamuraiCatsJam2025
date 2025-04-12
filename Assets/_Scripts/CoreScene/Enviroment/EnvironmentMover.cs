@@ -25,10 +25,6 @@ namespace _Scripts.CoreScene.Enviroment
                 m_alreadyStart = true;
                 transform.position += m_lineHandler.DirectionToHarold * m_levelModel.Speed * Time.deltaTime;
             }
-            else
-            {
-                
-            }
         }
     }
 }
