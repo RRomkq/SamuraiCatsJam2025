@@ -44,6 +44,15 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa6a85ef-b513-4c19-8849-242aefecc9e6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
                     ""action"": ""Turn Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e461eff-52a0-4449-ac26-9002b310cbd0"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_TurnLeft = m_Movement.FindAction("Turn Left", throwIfNotFound: true);
         m_Movement_TurnRight = m_Movement.FindAction("Turn Right", throwIfNotFound: true);
+        m_Movement_Click = m_Movement.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +162,14 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_TurnLeft;
     private readonly InputAction m_Movement_TurnRight;
+    private readonly InputAction m_Movement_Click;
     public struct MovementActions
     {
         private @HoronControls m_Wrapper;
         public MovementActions(@HoronControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @TurnLeft => m_Wrapper.m_Movement_TurnLeft;
         public InputAction @TurnRight => m_Wrapper.m_Movement_TurnRight;
+        public InputAction @Click => m_Wrapper.m_Movement_Click;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +185,9 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
             @TurnRight.started += instance.OnTurnRight;
             @TurnRight.performed += instance.OnTurnRight;
             @TurnRight.canceled += instance.OnTurnRight;
+            @Click.started += instance.OnClick;
+            @Click.performed += instance.OnClick;
+            @Click.canceled += instance.OnClick;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -172,6 +198,9 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
             @TurnRight.started -= instance.OnTurnRight;
             @TurnRight.performed -= instance.OnTurnRight;
             @TurnRight.canceled -= instance.OnTurnRight;
+            @Click.started -= instance.OnClick;
+            @Click.performed -= instance.OnClick;
+            @Click.canceled -= instance.OnClick;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -193,5 +222,6 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
     {
         void OnTurnLeft(InputAction.CallbackContext context);
         void OnTurnRight(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

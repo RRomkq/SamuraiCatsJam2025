@@ -7,20 +7,33 @@ namespace _Scripts.CoreScene.Enviroment
 {
     public class PirsController: MonoBehaviour
     {
-        private PassengerSpawner m_passengerSpawner;
-        
+        private LineHandler m_lineHandler;
+        private GameManager m_gameManager;
+        private LevelModel m_levelModel;
+        private bool m_alreadyStart = false;
+        public Transform VisionPosition;
+
         [Inject]
-        public void Construct(PassengerSpawner passengerSpawner)
+        private void Construct(LineHandler lineHandler, LevelModel levelModel, GameManager gameManager)
         {
-            m_passengerSpawner = passengerSpawner;
+            m_lineHandler = lineHandler;
+            m_levelModel = levelModel;
+            m_gameManager = gameManager;
         }
         
-        private void OnTriggerEnter(Collider other)
+        private void Update()
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (m_gameManager.ShipState == ShipState.Swimming || m_alreadyStart)
             {
-                m_passengerSpawner.StartSpawnPassengersForLevel().Forget();
+                m_alreadyStart = true;
+                transform.position += m_lineHandler.DirectionToHarold * m_levelModel.Speed * Time.deltaTime;
             }
+        }
+
+        public void ResetPirs()
+        {
+            m_alreadyStart = false;
+            transform.position = VisionPosition.position;
         }
     }
 }
