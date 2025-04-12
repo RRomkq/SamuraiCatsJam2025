@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -5,39 +7,34 @@ namespace _Scripts.CoreScene.Enviroment
 {
     public class GroundController: MonoBehaviour
     {
-        public Transform NotVisionPosition;
-        public Transform VisionPosition;
-        public float speed;
-        public Transform PirsPosition;
-
-        private Transform m_target;
+        public List<Material> GroundMaterials;
         
-        private PlayerMoveController m_playerMoveController;
+        private GameManager m_gameManager;
+        private LevelModel m_levelModel;
         
         [Inject]
-        public void Construct(PlayerMoveController playerMoveController)
+        private void Construct(GameManager gameManager, LevelModel levelModel)
         {
-            m_playerMoveController = playerMoveController;
+            m_gameManager = gameManager;
+            m_levelModel = levelModel;
         }
 
-        public void GoToVisionPosition()
-        {
-            m_target = VisionPosition;
-            //m_playerMoveController.GoToTarget(PirsPosition);
-        }
-
-        public void GoToNotVisionPosition()
-        {
-            m_target = NotVisionPosition;
-        }
-        
         private void Update()
         {
-            // Плавно перемещаем объект к целевому Transform
-            if (m_target != null)
+            if (m_gameManager.ShipState != ShipState.Swimming)
             {
-                // Плавное движение с использованием Lerp (линейной интерполяции)
-                transform.position = Vector3.Lerp(transform.position, m_target.position, speed * Time.deltaTime);
+                foreach (var material in GroundMaterials)
+                {
+                    material.SetFloat("_AllSpeed", 0);
+                }
+            }
+            else
+            {
+                foreach (var material in GroundMaterials)
+                {
+                    material.SetFloat("_AllSpeed", m_levelModel.GroundSpeedByLevels[(int)m_levelModel.DifficultyLevel]);
+                }
+                
             }
         }
     }

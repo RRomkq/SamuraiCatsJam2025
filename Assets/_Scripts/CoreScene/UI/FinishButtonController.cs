@@ -23,8 +23,8 @@ namespace _Scripts.CoreScene
 
         public void FinishLevel()
         {
-            //m_playerMoveController.GoToTarget(screenOutTarget);
-            m_screenFadeController.AlphaToAndDoAction(1, 2, ResetPlayer);
+            m_playerMoveController.MoveTo(screenOutTarget, 5);
+            m_screenFadeController.AlphaToAndDoAction(1, 5, ResetPlayer);
         }
 
         private void ResetPlayer()

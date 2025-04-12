@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using _Scripts.CoreScene.Enviroment;
 
 namespace _Scripts.CoreScene
@@ -18,8 +19,10 @@ namespace _Scripts.CoreScene
         
         public int PassengersCount => m_levelSettings.PassengersCount;
 
-        public DifficultyLevel DifficultyLevel { get; set; } = DifficultyLevel.Hard;
+        public DifficultyLevel DifficultyLevel { get; set; } = DifficultyLevel.Medium;
         
         public int BarricadesCount => m_levelSettings.BarricadesRawCount;
+        
+        public List<int> GroundSpeedByLevels => m_levelSettings.GroundSpeedByLevel;
     }
 }
