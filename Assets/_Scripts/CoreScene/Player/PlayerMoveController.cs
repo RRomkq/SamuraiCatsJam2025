@@ -50,7 +50,7 @@ public class PlayerMoveController : MonoBehaviour
 
     public void GoToFirstLine()
     {
-        MoveTo(m_lineHandler.HaronLines.First(), 10);
+        MoveTo(m_lineHandler.HaronLines.First(), 3);
         m_currentLine = 0;
     }
 

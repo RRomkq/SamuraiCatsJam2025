@@ -843,6 +843,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 144402885845000849, guid: d9d34136fa1be0442bd5e4af17857690,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 144402885845000849, guid: d9d34136fa1be0442bd5e4af17857690,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 1508299525543846086, guid: d9d34136fa1be0442bd5e4af17857690,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1527,6 +1537,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &703468267 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7926985682008595211, guid: d9d34136fa1be0442bd5e4af17857690,
+    type: 3}
+  m_PrefabInstance: {fileID: 513156208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &967686668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,7 +2141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfcd48927f16416192f5a90ea79788ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  screenOutTarget: {fileID: 0}
+  screenOutTarget: {fileID: 703468267}
 --- !u!114 &1980527253
 MonoBehaviour:
   m_ObjectHideFlags: 0

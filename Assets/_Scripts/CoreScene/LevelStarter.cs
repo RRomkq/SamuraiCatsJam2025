@@ -67,8 +67,9 @@ namespace _Scripts.CoreScene
         private async UniTask StartLevelAsync()
         {
             await UniTask.DelayFrame(1);
+            
             m_playerMoveController.GoToFirstLine();
-            m_screenFadeController.AlphaTo(0, 5);
+            m_screenFadeController.AlphaTo(0, 2);
         }
     }
 }

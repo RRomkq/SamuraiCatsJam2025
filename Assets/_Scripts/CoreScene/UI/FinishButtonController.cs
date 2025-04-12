@@ -5,6 +5,8 @@ namespace _Scripts.CoreScene
 {
     public class FinishButtonController: MonoBehaviour
     {
+        private const int DURATION = 2;
+        
         public Transform screenOutTarget;
         
         private PlayerMoveController m_playerMoveController;
@@ -23,8 +25,8 @@ namespace _Scripts.CoreScene
 
         public void FinishLevel()
         {
-            m_playerMoveController.MoveTo(screenOutTarget, 5);
-            m_screenFadeController.AlphaToAndDoAction(1, 5, ResetPlayer);
+            m_playerMoveController.MoveTo(screenOutTarget, DURATION * 2);
+            m_screenFadeController.AlphaToAndDoAction(1, DURATION, ResetPlayer);
         }
 
         private void ResetPlayer()
