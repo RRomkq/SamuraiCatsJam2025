@@ -48,13 +48,10 @@ namespace _Scripts.CoreScene
         private async UniTask WaitAndFinishLevel()
         {
             m_finishedTime = DateTime.Now.AddSeconds(m_levelModel.LevelDurationInSeconds);
-            await UniTask.Delay(m_levelModel.LevelDurationInSeconds * 1000);
-            FinishSwimming();
         }
-
-        public void FinishSwimming()
+        
+        public void FinishLevel()
         {
-            //m_finishGroundController.GoToVisionPosition();
             ShipState = ShipState.Mooring;
         }
     }

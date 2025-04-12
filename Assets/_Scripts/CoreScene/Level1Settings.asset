@@ -18,4 +18,4 @@ MonoBehaviour:
   MaxSlowdownFactor: 0.1
   Speed: 10
   PassengersCount: 3
-  BarricadesRawCount: 5
+  BarricadesRawCount: 1

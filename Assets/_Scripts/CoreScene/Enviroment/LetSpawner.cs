@@ -15,6 +15,8 @@ public class LetSpawner: MonoBehaviour
     private bool m_isSpawning;
 
     public GameObject barricadePrefab;
+    public GameObject lastBarricadePrefab;
+    
 
     [Inject]
     public void Construct(LevelModel levelModel, IInstantiator instantiator, LineHandler lineHandler)
@@ -31,6 +33,11 @@ public class LetSpawner: MonoBehaviour
             GenerateMaze();
 
             await UniTask.Delay(m_levelModel.SpawnBaricadesDelay * 1000);
+        }
+
+        foreach (var bTransform in m_lineHandler.BarricadeLines)
+        {
+            m_instantiator.InstantiatePrefab(lastBarricadePrefab, bTransform.position, quaternion.identity, bTransform);
         }
     }
     
