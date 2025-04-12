@@ -118,7 +118,7 @@ TextureImporter:
         width: 955
         height: 608
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 385, y: 261, z: 402, w: 266}
       outline: []
       physicsShape: []
@@ -139,7 +139,7 @@ TextureImporter:
         width: 366
         height: 366
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -147,6 +147,69 @@ TextureImporter:
       bones: []
       spriteID: 15982f7ce7401e04393892618cc91b25
       internalID: 1916305996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIButton_2
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 0
+        width: 538
+        height: 422
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 224, y: 234, z: 301, w: 179}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20229cc4580c8b478f2dcf4908c3762
+      internalID: -230471764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIButton_3
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 0
+        width: 219
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f529d976e49210c439f7fa1154fc12d4
+      internalID: 493791271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIButton_4
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 211
+        width: 216
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9040d9fbd00034e8c65ee57d96b083
+      internalID: -1210384779
       vertices: []
       indices: 
       edges: []
@@ -164,6 +227,9 @@ TextureImporter:
     nameFileIdTable:
       UIButton_0: 686985717
       UIButton_1: 1916305996
+      UIButton_2: -230471764
+      UIButton_3: 493791271
+      UIButton_4: -1210384779
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
