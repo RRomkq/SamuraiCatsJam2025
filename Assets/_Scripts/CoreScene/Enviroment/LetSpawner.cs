@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using _Scripts.CoreScene;
 using UnityEngine;
 using Zenject;
@@ -9,34 +7,31 @@ using Random = UnityEngine.Random;
 public class LetSpawner : MonoBehaviour
 {
     public GameObject objectPrefab;      // Префаб объекта для спавна
-    public float spawnInterval = 1f;     // Интервал между спавнами
-    public float minSpeed = 1f;          // Минимальная скорость
-    public float maxSpeed = 5f;          // Максимальная скорость
+    private float spawnInterval = 1f;     // Интервал между спавнами
     
     public Transform LeftSpawnBorder;
     public Transform RightSpawnBorder;
     
     private IInstantiator m_instantiator;
     private GameManager m_gameManager;
+    private LevelModel m_levelModel;
 
     private float timer = 0f;
 
     [Inject]
-    public void Construct(IInstantiator instantiator, GameManager gameManager, LevelSettings levelSettings)
+    public void Construct(IInstantiator instantiator, GameManager gameManager, LevelModel levelModel)
     {
         m_instantiator = instantiator;
         m_gameManager = gameManager;
 
-        spawnInterval = levelSettings.SpawnBaricadesDelay;
-        minSpeed = levelSettings.MinBaricadesSpeed;
-        maxSpeed = levelSettings.MaxBaricadesSpeed;
+        m_levelModel = levelModel;
     }
     
     void Update()
     {
         timer += Time.deltaTime;
         
-        if (!m_gameManager.IsTransports)
+        if (m_gameManager.ShipState != ShipState.Swimming)
         {
             return;
         }
@@ -46,7 +41,7 @@ public class LetSpawner : MonoBehaviour
             return;
         }
 
-        if (timer >= spawnInterval)
+        if (timer >= m_levelModel.SpawnBaricadesDelay)
         {
             timer = 0f;
             SpawnObject();
@@ -58,13 +53,5 @@ public class LetSpawner : MonoBehaviour
         Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, Random.Range(LeftSpawnBorder.position.z, RightSpawnBorder.position.z));
 
         GameObject newObj = m_instantiator.InstantiatePrefab(objectPrefab, spawnPos, Quaternion.identity, transform);
-
-        // Назначаем случайную скорость объекту
-        float randomSpeed = Random.Range(minSpeed, maxSpeed);
-        LetMover mover = newObj.GetComponent<LetMover>();
-        if (mover != null)
-        {
-            mover.moveSpeed = randomSpeed;
-        }
     }
 }

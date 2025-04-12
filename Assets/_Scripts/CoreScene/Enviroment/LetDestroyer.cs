@@ -7,7 +7,7 @@ namespace _Scripts.CoreScene.Enviroment
         private void OnTriggerEnter(Collider other)
         {
             // Проверяем, есть ли на объекте компонент LetMover
-            LetMover letMoverComponent = other.GetComponent<LetMover>();
+            Barricade letMoverComponent = other.GetComponent<Barricade>();
 
             // Если компонент найден, уничтожаем объект
             if (letMoverComponent != null)
