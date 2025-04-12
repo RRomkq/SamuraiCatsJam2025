@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
@@ -25,7 +26,10 @@ namespace _Scripts.CoreScene
             m_screenFadeController = screenFadeController;
             m_levelModel = levelModel;
             m_levelsData = levelsData;
-            
+        }
+
+        public void Awake()
+        {
             StartLevel();
         }
 
@@ -40,6 +44,8 @@ namespace _Scripts.CoreScene
             m_currentLevelIndex++;
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
+            m_playerMoveController.GoToFirstLine();
+            m_screenFadeController.AlphaTo(1, 0);
             m_screenFadeController.AlphaTo(0, 2);
         }
     }

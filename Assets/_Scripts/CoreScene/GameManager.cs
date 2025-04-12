@@ -14,16 +14,18 @@ namespace _Scripts.CoreScene
         private GroundController m_startGroundController;
         private GroundController m_finishGroundController;
         private ScreenFadeController m_screenFadeController;
+        private LetSpawner m_letSpawner;
         
         public ShipState ShipState { get; set; }
         
-        public GameManager(GroundModel groundModel, LevelModel levelModel, ScreenFadeController screenFadeController)
+        public GameManager(LevelModel levelModel, LetSpawner letSpawner)
         {
-            m_startGroundController = groundModel.StartGroundController;
-            m_finishGroundController = groundModel.FinishGroundController;
+            //m_startGroundController = groundModel.StartGroundController;
+           // m_finishGroundController = groundModel.FinishGroundController;
 
             m_levelModel = levelModel;
-            m_screenFadeController = screenFadeController;
+            m_letSpawner = letSpawner;
+            //m_screenFadeController = screenFadeController;
         }
         
         public DateTime FinishedTime => m_finishedTime;
@@ -31,13 +33,14 @@ namespace _Scripts.CoreScene
         public void Initialize()
         {
             ShipState = ShipState.Mooring;
-            m_startGroundController.GoToVisionPosition();
+            //m_startGroundController.GoToVisionPosition();
         }
         
         public void StartSwimming()
         {
-            m_startGroundController.GoToNotVisionPosition();
+            //m_startGroundController.GoToNotVisionPosition();
             ShipState = ShipState.Swimming;
+            m_letSpawner.StartSpawnBarricade().Forget();
 
             WaitAndFinishLevel().Forget();
         }
@@ -51,7 +54,7 @@ namespace _Scripts.CoreScene
 
         public void FinishSwimming()
         {
-            m_finishGroundController.GoToVisionPosition();
+            //m_finishGroundController.GoToVisionPosition();
             ShipState = ShipState.Mooring;
         }
     }

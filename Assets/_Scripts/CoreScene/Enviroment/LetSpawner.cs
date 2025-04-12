@@ -1,57 +1,48 @@
 using System;
 using _Scripts.CoreScene;
+using _Scripts.CoreScene.Enviroment;
+using Cysharp.Threading.Tasks;
+using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 using Random = UnityEngine.Random;
 
-public class LetSpawner : MonoBehaviour
+public class LetSpawner: MonoBehaviour
 {
-    public GameObject objectPrefab;      // Префаб объекта для спавна
-    private float spawnInterval = 1f;     // Интервал между спавнами
-    
-    public Transform LeftSpawnBorder;
-    public Transform RightSpawnBorder;
-    
-    private IInstantiator m_instantiator;
-    private GameManager m_gameManager;
     private LevelModel m_levelModel;
+    private IInstantiator m_instantiator;
+    private LineHandler m_lineHandler;
+    private bool m_isSpawning;
 
-    private float timer = 0f;
+    public GameObject barricadePrefab;
 
     [Inject]
-    public void Construct(IInstantiator instantiator, GameManager gameManager, LevelModel levelModel)
+    public void Construct(LevelModel levelModel, IInstantiator instantiator, LineHandler lineHandler)
     {
-        m_instantiator = instantiator;
-        m_gameManager = gameManager;
-
         m_levelModel = levelModel;
+        m_instantiator = instantiator;
+        m_lineHandler = lineHandler;
     }
     
-    void Update()
+    public async UniTask StartSpawnBarricade()
     {
-        timer += Time.deltaTime;
+        if (m_isSpawning == true)
+        {
+            return;
+        }
         
-        if (m_gameManager.ShipState != ShipState.Swimming)
+        m_isSpawning = true;
+        while (m_isSpawning)
         {
-            return;
-        }
+            Transform line = m_lineHandler.BarricadeLines[Random.Range(0, m_lineHandler.BarricadeLines.Count)];
 
-        if (m_gameManager.FinishedTime - DateTime.Now <= TimeSpan.FromSeconds(5))
-        {
-            return;
-        }
+            m_instantiator.InstantiatePrefab(barricadePrefab, line.position, quaternion.identity, line.transform);
 
-        if (timer >= m_levelModel.SpawnBaricadesDelay)
-        {
-            timer = 0f;
-            SpawnObject();
+            await UniTask.Delay(m_levelModel.SpawnBaricadesDelay * 1000);
         }
     }
-
-    void SpawnObject()
-    {
-        Vector3 spawnPos = new Vector3(transform.position.x, transform.position.y, Random.Range(LeftSpawnBorder.position.z, RightSpawnBorder.position.z));
-
-        GameObject newObj = m_instantiator.InstantiatePrefab(objectPrefab, spawnPos, Quaternion.identity, transform);
-    }
+    
+    public void StopSpawnBarricade() => m_isSpawning = false;
+    
+    
 }

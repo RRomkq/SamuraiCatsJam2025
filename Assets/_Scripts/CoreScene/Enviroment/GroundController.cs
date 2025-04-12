@@ -23,7 +23,7 @@ namespace _Scripts.CoreScene.Enviroment
         public void GoToVisionPosition()
         {
             m_target = VisionPosition;
-            m_playerMoveController.GoToTarget(PirsPosition);
+            //m_playerMoveController.GoToTarget(PirsPosition);
         }
 
         public void GoToNotVisionPosition()

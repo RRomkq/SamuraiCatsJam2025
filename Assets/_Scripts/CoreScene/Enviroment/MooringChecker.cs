@@ -10,7 +10,7 @@ namespace _Scripts.CoreScene.Enviroment
         {
             if (other.TryGetComponent<PlayerMoveController>(out var playerMoveController))
             {
-                playerMoveController.GoToTarget(Pirs);
+                //playerMoveController.GoToTarget(Pirs);
             }
         }
     }

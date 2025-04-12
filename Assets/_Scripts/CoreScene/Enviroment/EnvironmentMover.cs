@@ -5,21 +5,23 @@ namespace _Scripts.CoreScene.Enviroment
 {
     public class EnvironmentMover: MonoBehaviour
     {
+        private LineHandler m_lineHandler;
         private GameManager m_gameManager;
-        private SpeedService m_speedService;
+        private LevelModel m_levelModel;
 
         [Inject]
-        private void Construct(GameManager gameManager, SpeedService speedService)
+        private void Construct(LineHandler lineHandler, LevelModel levelModel, GameManager gameManager)
         {
+            m_lineHandler = lineHandler;
+            m_levelModel = levelModel;
             m_gameManager = gameManager;
-            m_speedService = speedService;
         }
         
         private void Update()
         {
             if (m_gameManager.ShipState == ShipState.Swimming)
             {
-                transform.position += m_speedService.CountSpeed();
+                transform.position += m_lineHandler.DirectionToHarold * m_levelModel.Speed * Time.deltaTime;
             }
         }
     }
