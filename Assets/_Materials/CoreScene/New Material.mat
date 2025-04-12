@@ -113,7 +113,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FloatSpeed: 0.1
+    - _FloatSpeed: 0.5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -132,11 +132,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.003648994, g: 0.7209228, b: 0.7735849, a: 1}
+    - _BaseColor: {r: 0.045389827, g: 0.5315049, b: 0.5660378, a: 1}
     - _Color: {r: 0.0036489943, g: 0.7209228, b: 0.7735849, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlowDirection: {r: 0, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _TextureRepet: {r: 4, g: 4, b: 0, a: 0}
-    - _WaterTintColor: {r: 0.13333327, g: 0.16470587, b: 0.20784307, a: 0}
+    - _TextureRepet: {r: 12, g: 12, b: 0, a: 0}
+    - _WaterTintColor: {r: 0.12615699, g: 0.15763783, b: 0.1981132, a: 0}
   m_BuildTextureStacks: []

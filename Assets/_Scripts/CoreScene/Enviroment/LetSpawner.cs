@@ -22,10 +22,14 @@ public class LetSpawner : MonoBehaviour
     private float timer = 0f;
 
     [Inject]
-    public void Construct(IInstantiator instantiator, GameManager gameManager)
+    public void Construct(IInstantiator instantiator, GameManager gameManager, LevelSettings levelSettings)
     {
         m_instantiator = instantiator;
         m_gameManager = gameManager;
+
+        spawnInterval = levelSettings.SpawnBaricadesDelay;
+        minSpeed = levelSettings.MinBaricadesSpeed;
+        maxSpeed = levelSettings.MaxBaricadesSpeed;
     }
     
     void Update()
@@ -33,6 +37,11 @@ public class LetSpawner : MonoBehaviour
         timer += Time.deltaTime;
         
         if (!m_gameManager.IsTransports)
+        {
+            return;
+        }
+
+        if (m_gameManager.FinishedTime - DateTime.Now <= TimeSpan.FromSeconds(5))
         {
             return;
         }

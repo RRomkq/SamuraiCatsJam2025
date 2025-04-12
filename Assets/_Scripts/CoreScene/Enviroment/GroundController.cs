@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using Zenject;
 
 namespace _Scripts.CoreScene.Enviroment
 {
@@ -11,26 +9,13 @@ namespace _Scripts.CoreScene.Enviroment
         public float speed;
 
         private Transform m_target;
-        
-        private GameManager m_gameManager;
-        
-        [Inject]
-        public void Construct(GameManager gameManager)
+
+        public void GoToVisionPosition()
         {
-            m_gameManager = gameManager;
+            m_target = VisionPosition;
         }
 
-        private void Awake()
-        {
-            m_gameManager.StartTransports += OnStartTransports;
-        }
-
-        private void OnDisable()
-        {
-            m_gameManager.StartTransports -= OnStartTransports;
-        }
-
-        private void OnStartTransports()
+        public void GoToNotVisionPosition()
         {
             m_target = NotVisionPosition;
         }

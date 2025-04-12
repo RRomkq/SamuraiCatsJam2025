@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using _Scripts.CoreScene;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class PlayerMoveController : MonoBehaviour
 {
@@ -16,10 +18,20 @@ public class PlayerMoveController : MonoBehaviour
     
     private bool isTurningLeft = false;
     private bool isTurningRight = false;
+
+    private LevelSettings m_levelSettings;
+    private GameManager m_gameManager;
     
     public float CurrentYaw => currentYaw;
 
     public HoronControls controls;
+
+    [Inject]
+    public void Construct(LevelSettings levelSettings, GameManager gameManager)
+    {
+        m_levelSettings = levelSettings;
+        m_gameManager = gameManager;
+    }
 
     private void Awake()
     {
@@ -59,6 +71,11 @@ public class PlayerMoveController : MonoBehaviour
 
     private void Update()
     {
+        if (!m_gameManager.IsTransports)
+        {
+            return;
+        }
+        
         // Поворот лодки в зависимости от состояния
         if (isTurningLeft)
         {
@@ -99,6 +116,11 @@ public class PlayerMoveController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!m_gameManager.IsTransports)
+        {
+            return;
+        }
+        
         // Поворот лодки по оси Y
         Quaternion targetRotation = Quaternion.Euler(0f, currentYaw, 0f);
         boatModel.rotation = Quaternion.Slerp(boatModel.rotation, targetRotation, Time.deltaTime * 10f);
@@ -108,5 +130,7 @@ public class PlayerMoveController : MonoBehaviour
 
         // Двигаемся по оси Z (вперёд или назад)
         transform.position += Vector3.forward * currentSpeed * Time.deltaTime;
+
+        transform.position += Vector3.forward * m_levelSettings.WaterFlowForce;
     }
 }

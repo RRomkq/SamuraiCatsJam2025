@@ -4,7 +4,7 @@ using Zenject;
 public class LetMover : MonoBehaviour
 {
     public float moveSpeed = 2f; // Будет задаваться спавнером
-    public float MaxSlowdownFactor = 0.3f;
+    public float MaxSlowdownFactor = 0.1f;
     
     private PlayerMoveController m_playerMoveController;
 
