@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,8 @@ public class PlayerMoveController : MonoBehaviour
 
     private int m_currentLine = 1;
 
+    public event Action Click;
+
     [Inject]
     public void Construct(LineHandler lineHandler)
     {
@@ -29,6 +32,7 @@ public class PlayerMoveController : MonoBehaviour
 
         controls.Movement.TurnLeft.performed += ctx => GoToLine(-1);
         controls.Movement.TurnRight.performed += ctx => GoToLine(1);
+        controls.Movement.Click.performed += ctx => Click?.Invoke();
     }
 
     private void GoToLine(int i)
@@ -46,17 +50,30 @@ public class PlayerMoveController : MonoBehaviour
 
     public void GoToFirstLine()
     {
-        MoveTo(m_lineHandler.HaronLines.First());
+        MoveTo(m_lineHandler.HaronLines.First(), 10);
+        m_currentLine = 0;
+    }
+
+    public void GoToCenterLine()
+    {
+        MoveTo(m_lineHandler.HaronLines[2], ForceToLineDuration * 2);
+        m_currentLine = 2;
     }
     
     public void GoToLastLine()
     {
-        MoveTo(m_lineHandler.HaronLines.Last());
+        MoveTo(m_lineHandler.HaronLines.Last(), ForceToLineDuration*(m_lineHandler.HaronLines.Count - m_currentLine));
+        m_currentLine = m_lineHandler.HaronLines.Count - 1;
     }
 
-    private void MoveTo(Transform target)
+    public void MoveTo(Transform target)
     {
-        transform.DOMove(target.position, ForceToLineDuration).SetEase(Ease.InOutQuad);
+        transform.DOMove(target.position, ForceToLineDuration).SetEase(Ease.Linear);
+    }
+
+    public void MoveTo(Transform target, float duration)
+    {
+        transform.DOMove(target.position, duration).SetEase(Ease.Linear);
     }
 
     public void GoToTargetInstant(Transform target)

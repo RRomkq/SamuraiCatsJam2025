@@ -17,7 +17,7 @@ namespace _Scripts.CoreScene
         public void AlphaToAndDoAction(float alpha, float time, Action onComplete)
         {
             m_image.DOFade(alpha, time)
-                .SetEase(Ease.InElastic)
+                .SetEase(Ease.Linear)
                 .OnComplete(onComplete.Invoke);
         }
         

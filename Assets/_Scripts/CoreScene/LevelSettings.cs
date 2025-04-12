@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace _Scripts.CoreScene
@@ -18,5 +19,7 @@ namespace _Scripts.CoreScene
         public int PassengersCount;
         
         public int BarricadesRawCount;
+        
+        public List<int> GroundSpeedByLevel = new List<int>();
     }
 }

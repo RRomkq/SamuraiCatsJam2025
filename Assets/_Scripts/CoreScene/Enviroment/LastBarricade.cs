@@ -16,8 +16,9 @@ namespace _Scripts.CoreScene.Enviroment
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && !m_gameManager.IsLastBarricadeComplete)
             {
+                m_gameManager.IsLastBarricadeComplete = true;
                 m_gameManager.FinishLevel();
             }
         }
