@@ -11,8 +11,10 @@ namespace _Scripts.CoreScene
         
         public int SpawnBaricadesDelay;
         
-        public float MaxBaricadesSpeed;
+        public float MaxSlowdownFactor;
+
+        public float Speed;
         
-        public float MinBaricadesSpeed;
+        public int PassengersCount;
     }
 }

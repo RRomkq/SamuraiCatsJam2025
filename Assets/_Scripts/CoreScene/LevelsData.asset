@@ -9,12 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349d0fb922e84ac3a932cf0c8b689626, type: 3}
-  m_Name: Level1Settings
+  m_Script: {fileID: 11500000, guid: cf881162388a4378ab38caf18f780ece, type: 3}
+  m_Name: LevelsData
   m_EditorClassIdentifier: 
-  LevelDurationInSeconds: 15
-  WaterFlowForce: 0.1
-  SpawnBaricadesDelay: 1
-  MaxSlowdownFactor: 0.1
-  Speed: 5
-  PassengersCount: 3
+  LevelSettingsMap:
+  - {fileID: 11400000, guid: b332867820213b74b8419bf35c9cdda8, type: 2}

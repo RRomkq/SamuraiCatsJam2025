@@ -7,56 +7,52 @@ namespace _Scripts.CoreScene
 {
     public class GameManager: IInitializable
     {
-        private bool m_isTransports;
-        
-        private LevelSettings m_levelSettings;
+        private LevelModel m_levelModel;
 
         private DateTime m_finishedTime;
         
         private GroundController m_startGroundController;
         private GroundController m_finishGroundController;
+        private ScreenFadeController m_screenFadeController;
         
-        public GameManager(GroundModel groundModel, LevelSettings levelSettings)
+        public ShipState ShipState { get; set; }
+        
+        public GameManager(GroundModel groundModel, LevelModel levelModel, ScreenFadeController screenFadeController)
         {
             m_startGroundController = groundModel.StartGroundController;
             m_finishGroundController = groundModel.FinishGroundController;
 
-            m_levelSettings = levelSettings;
+            m_levelModel = levelModel;
+            m_screenFadeController = screenFadeController;
         }
         
         public DateTime FinishedTime => m_finishedTime;
         
         public void Initialize()
         {
-            
+            ShipState = ShipState.Mooring;
+            m_startGroundController.GoToVisionPosition();
         }
         
-        public bool IsTransports => m_isTransports;
-
-        public event Action StartTransports;
-        
-        public event Action FinishTransports;
-
         public void StartSwimming()
         {
-            m_isTransports = true;
             m_startGroundController.GoToNotVisionPosition();
-            StartTransports?.Invoke();
+            ShipState = ShipState.Swimming;
 
             WaitAndFinishLevel().Forget();
         }
 
         private async UniTask WaitAndFinishLevel()
         {
-            m_finishedTime = DateTime.Now.AddSeconds(m_levelSettings.LevelDurationInSeconds);
-            await UniTask.Delay(m_levelSettings.LevelDurationInSeconds * 1000);
+            m_finishedTime = DateTime.Now.AddSeconds(m_levelModel.LevelDurationInSeconds);
+            await UniTask.Delay(m_levelModel.LevelDurationInSeconds * 1000);
             FinishSwimming();
         }
 
         public void FinishSwimming()
         {
             m_finishGroundController.GoToVisionPosition();
-            FinishTransports?.Invoke();
+            ShipState = ShipState.Mooring;
         }
     }
 }

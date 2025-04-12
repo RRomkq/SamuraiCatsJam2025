@@ -1,4 +1,5 @@
 using UnityEngine;
+using Zenject;
 
 namespace _Scripts.CoreScene.Enviroment
 {
@@ -7,12 +8,22 @@ namespace _Scripts.CoreScene.Enviroment
         public Transform NotVisionPosition;
         public Transform VisionPosition;
         public float speed;
+        public Transform PirsPosition;
 
         private Transform m_target;
+        
+        private PlayerMoveController m_playerMoveController;
+        
+        [Inject]
+        public void Construct(PlayerMoveController playerMoveController)
+        {
+            m_playerMoveController = playerMoveController;
+        }
 
         public void GoToVisionPosition()
         {
             m_target = VisionPosition;
+            m_playerMoveController.GoToTarget(PirsPosition);
         }
 
         public void GoToNotVisionPosition()
