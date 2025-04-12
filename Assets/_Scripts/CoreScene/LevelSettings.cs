@@ -16,5 +16,7 @@ namespace _Scripts.CoreScene
         public float Speed;
         
         public int PassengersCount;
+        
+        public int BarricadesRawCount;
     }
 }

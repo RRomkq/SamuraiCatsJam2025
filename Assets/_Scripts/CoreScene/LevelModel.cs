@@ -1,3 +1,5 @@
+using _Scripts.CoreScene.Enviroment;
+
 namespace _Scripts.CoreScene
 {
     public class LevelModel
@@ -15,5 +17,9 @@ namespace _Scripts.CoreScene
         public float Speed => m_levelSettings.Speed;
         
         public int PassengersCount => m_levelSettings.PassengersCount;
+
+        public DifficultyLevel DifficultyLevel { get; set; } = DifficultyLevel.Hard;
+        
+        public int BarricadesCount => m_levelSettings.BarricadesRawCount;
     }
 }
