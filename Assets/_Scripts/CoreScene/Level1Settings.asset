@@ -19,4 +19,11 @@ MonoBehaviour:
   Speed: 15
   PassengersCount: 3
   BarricadesRawCount: 3
-  GroundSpeedByLevel: 010000000200000003000000
+  GroundSpeedByLevel:
+  - 2
+  - 2.4
+  - 2.8
+  WaterSpeedByLevel:
+  - 1
+  - 1.2
+  - 1.4

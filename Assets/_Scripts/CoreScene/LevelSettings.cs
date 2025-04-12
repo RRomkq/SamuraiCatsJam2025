@@ -20,6 +20,8 @@ namespace _Scripts.CoreScene
         
         public int BarricadesRawCount;
         
-        public List<int> GroundSpeedByLevel = new List<int>();
+        public List<float> GroundSpeedByLevel = new List<float>();
+        
+        public List<float> WaterSpeedByLevel = new List<float>();
     }
 }

@@ -918,6 +918,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.23
       objectReference: {fileID: 0}
+    - target: {fileID: 5762611607477617779, guid: d9d34136fa1be0442bd5e4af17857690,
+        type: 3}
+      propertyPath: WaterMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2512613dd6906ff40b99db201f07f2b8, type: 2}
+    - target: {fileID: 5762611607477617779, guid: d9d34136fa1be0442bd5e4af17857690,
+        type: 3}
+      propertyPath: GroundMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e51e4bb0e0b9ef74a8e044ec0d08ad0c, type: 2}
     - target: {fileID: 6355617728565803905, guid: d9d34136fa1be0442bd5e4af17857690,
         type: 3}
       propertyPath: m_LocalPosition.x

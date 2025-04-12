@@ -23,6 +23,8 @@ namespace _Scripts.CoreScene
         
         public int BarricadesCount => m_levelSettings.BarricadesRawCount;
         
-        public List<int> GroundSpeedByLevels => m_levelSettings.GroundSpeedByLevel;
+        public List<float> GroundSpeedByLevels => m_levelSettings.GroundSpeedByLevel;
+        
+        public List<float> WaterSpeedByLevels => m_levelSettings.WaterSpeedByLevel;
     }
 }
