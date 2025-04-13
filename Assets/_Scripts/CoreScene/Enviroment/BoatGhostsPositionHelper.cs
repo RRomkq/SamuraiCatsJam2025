@@ -34,14 +34,19 @@ namespace _Scripts.CoreScene.Enviroment
 
         private void Update()
         {
-            /*if (m_bisyPoints.Count(k => k.Value) == 0 && m_audioSource.isPlaying)
+            if (m_bisyPoints == null)
+            {
+                return;
+            }
+            
+            if (m_bisyPoints.Count(k => k.Value) == 0 && m_audioSource.isPlaying)
             {
                 m_audioSource.Stop();
             }
             else if (!m_audioSource.isPlaying)
             {
                 m_audioSource.Play();
-            }*/
+            }
         }
 
         public void Reset()
