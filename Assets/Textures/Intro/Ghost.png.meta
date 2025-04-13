@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: 061ad01912acaeb40bf95d37d604ffa1
+guid: 1f34a0ab13f14ef4d87241c2ae9dc05c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 0
+    enableMipMap: 1
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -37,10 +37,10 @@ TextureImporter:
     filterMode: 1
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
+    wrapU: 0
+    wrapV: 0
     wrapW: 0
-  nPOTScale: 0
+  nPOTScale: 1
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
@@ -52,7 +52,7 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 1
+  alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
@@ -110,34 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UIButton_0
+      name: Ghost_0
       rect:
         serializedVersion: 2
-        x: 33
-        y: 429
-        width: 945
-        height: 608
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 385, y: 261, z: 402, w: 266}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f43a5d9248fec1549b775208f0356212
-      internalID: 686985717
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIButton_1
-      rect:
-        serializedVersion: 2
-        x: 46
-        y: 37
-        width: 366
-        height: 366
+        x: 0
+        y: 65
+        width: 162
+        height: 445
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,41 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15982f7ce7401e04393892618cc91b25
-      internalID: 1916305996
+      spriteID: 8dc51de9d3ed4fb49b57e1d0d189275b
+      internalID: -43802939
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UIButton_2
+      name: Ghost_1
       rect:
         serializedVersion: 2
-        x: 639
-        y: 0
-        width: 538
-        height: 422
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 224, y: 234, z: 301, w: 179}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a20229cc4580c8b478f2dcf4908c3762
-      internalID: -230471764
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UIButton_3
-      rect:
-        serializedVersion: 2
-        x: 421
-        y: 0
-        width: 219
-        height: 208
+        x: 194
+        y: 77
+        width: 152
+        height: 424
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -187,20 +145,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f529d976e49210c439f7fa1154fc12d4
-      internalID: 493791271
+      spriteID: e9ccdd052c1773c4585c8f0103fb494c
+      internalID: -671117811
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UIButton_4
+      name: Ghost_2
       rect:
         serializedVersion: 2
-        x: 422
-        y: 211
-        width: 216
-        height: 217
+        x: 379
+        y: 102
+        width: 153
+        height: 399
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -208,29 +166,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f9040d9fbd00034e8c65ee57d96b083
-      internalID: -1210384779
+      spriteID: 190c3a22cbdfa8b448c49d21a46c4b01
+      internalID: 1054758431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UIButton_5
+      name: Ghost_3
       rect:
         serializedVersion: 2
-        x: 981
-        y: 871
-        width: 198
-        height: 197
+        x: 564
+        y: 131
+        width: 153
+        height: 370
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cef0da5db5d8c744980ed0ac7b501d81
-      internalID: 1145137789
+      spriteID: 4fc20e92eaa2d8a4e97dc41a550efd7f
+      internalID: -1919123591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_4
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 186
+        width: 132
+        height: 316
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f51221f1b29b0d45ad819706d5dc6aa
+      internalID: 1161839026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_5
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 217
+        width: 100
+        height: 284
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63d2ec898bd09124e9aca44bd73506ab
+      internalID: -35082771
       vertices: []
       indices: 
       edges: []
@@ -238,7 +238,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 50bd3ba03abc15343973dbc09bda44dd
+    spriteID: 98c065dab245ed34da6d87704339444a
     internalID: 0
     vertices: []
     indices: 
@@ -246,12 +246,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      UIButton_0: 686985717
-      UIButton_1: 1916305996
-      UIButton_2: -230471764
-      UIButton_3: 493791271
-      UIButton_4: -1210384779
-      UIButton_5: 1145137789
+      Ghost_0: -43802939
+      Ghost_1: -671117811
+      Ghost_2: 1054758431
+      Ghost_3: -1919123591
+      Ghost_4: 1161839026
+      Ghost_5: -35082771
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
