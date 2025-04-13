@@ -3,6 +3,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Zenject;
 
@@ -31,19 +32,27 @@ namespace _Scripts.CoreScene
         {
             m_currentClick = -100;
         }
-        
+
+        public void Update()
+        {
+            if (Input.GetMouseButtonDown(0) && m_cts != null)
+            {
+                OnClick();
+            }
+        }
+
         public event Action<bool> FinishClickEvent;
         
         public void StartClickEvent(int needClickCount)
         {
-            m_circle.fillAmount = (float)3 / m_needClickCount;
+            Parent.SetActive(true);
+            m_circle.fillAmount = (float)3 / (float)m_needClickCount;
             m_currentClick = 3;
             m_cts = new CancellationTokenSource();
             m_playerMoveController.Click += OnClick;
             ReduceProgres(m_cts.Token).Forget();
             m_needClickCount = needClickCount;
             
-            Parent.SetActive(true);
             AnimateClickSpaceText(m_cts.Token).Forget();
         }
 
@@ -85,9 +94,9 @@ namespace _Scripts.CoreScene
             {
                 while (true)
                 {
-                    await UniTask.Delay(800, cancellationToken: token);
                     m_currentClick--;
                     m_circle.fillAmount = (float)m_currentClick / m_needClickCount;
+                    await UniTask.Delay(800, cancellationToken: token);
 
                     if (m_currentClick <= 0)
                     {
@@ -114,6 +123,7 @@ namespace _Scripts.CoreScene
             Parent.SetActive(false);
             m_cts.Cancel();
             m_cts.Dispose();
+            m_cts = null;
         }
 
         public void Dispose()

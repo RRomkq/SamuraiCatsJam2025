@@ -16,6 +16,8 @@ public class LetSpawner: MonoBehaviour
 
     public List<GameObject> barricadePrefab;
     public GameObject lastBarricadePrefab;
+
+    public int CurrentBarricade { get; private set; }
     
 
     [Inject]
@@ -31,6 +33,7 @@ public class LetSpawner: MonoBehaviour
         for (int i = 0; i < m_levelModel.BarricadesCount; i++)
         {
             GenerateMaze();
+            CurrentBarricade++;
 
             await UniTask.Delay(m_levelModel.SpawnBaricadesDelay * 1000);
         }
@@ -47,35 +50,15 @@ public class LetSpawner: MonoBehaviour
 
         if (m_levelModel.DifficultyLevel == DifficultyLevel.Easy)
         {
-            int index = Random.Range(0, m_lineHandler.BarricadeLines.Count);
-            for (int i = 0; i < m_lineHandler.BarricadeLines.Count; i++)
-            {
-                emptyIndexes[i] = i == index ? 1 : 0;
-            }
+            RandomWall(emptyIndexes, 1, 3);
         }
         else if (m_levelModel.DifficultyLevel == DifficultyLevel.Medium)
         {
-            List<int> numbers = new List<int>() { 0, 1, 2, 3, 4 };
-            int wallCount = Random.Range(2, 4);
-            for (int i = 0; i < wallCount; i++)
-            {
-                int index = Random.Range(0, numbers.Count);
-                emptyIndexes[index] = 1;
-                numbers.Remove(index);
-            }
-
-            foreach (var index in numbers)
-            {
-                emptyIndexes[index] = 0;
-            }
+            RandomWall(emptyIndexes, 2, 4);
         }
         else
         {
-            int index = Random.Range(0, m_lineHandler.BarricadeLines.Count);
-            for (int i = 0; i < m_lineHandler.BarricadeLines.Count; i++)
-            {
-                emptyIndexes[i] = i == index ? 0 : 1;
-            }
+            RandomWall(emptyIndexes, 3, 5);
         }
 
         for(int i = 0; i < emptyIndexes.Count; i++)
@@ -89,7 +72,24 @@ public class LetSpawner: MonoBehaviour
         }
         
     }
-    
+
+    private static void RandomWall(List<int> emptyIndexes, int minValue, int maxValue)
+    {
+        List<int> numbers = new List<int>() { 0, 1, 2, 3, 4 };
+        int wallCount = Random.Range(minValue, maxValue);
+        for (int i = 0; i < wallCount; i++)
+        {
+            int index = Random.Range(0, numbers.Count);
+            emptyIndexes[index] = 1;
+            numbers.Remove(index);
+        }
+
+        foreach (var index in numbers)
+        {
+            emptyIndexes[index] = 0;
+        }
+    }
+
     public void StopSpawnBarricade() => m_isSpawning = false;
     
     

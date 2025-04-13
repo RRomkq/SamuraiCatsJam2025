@@ -19,38 +19,47 @@ namespace _Scripts.CoreScene
         private ScreenFadeController m_screenFadeController;
         private LetSpawner m_letSpawner;
         private PlayerMoveController m_playerMoveController;
-        private FinishPirsController m_finishPirsController;
-        private PlayerMoneyController m_playerMoneyController;
         private FinalLevelWindowController m_finalLevelWindowController;
         private PlayerMoneyModel m_playerMoneyModel;
         private AvitoWindowController m_avitoWindowController;
         private CameraController m_cameraController;
+
         private StartLevelGhostsRepository m_ghostsRepository;
         
         public ShipState ShipState { get; set; }
+
+        private GroundController m_groundController;
+        private GameModel m_gameModel;
+
+        public ShipState ShipState
+        {
+            get => m_gameModel.ShipState;
+            set => m_gameModel.ShipState = value;
+        }
+
         public bool IsLastBarricadeComplete { get; set; } = false;
         
         public GameManager(LevelModel levelModel,
             LetSpawner letSpawner,
             PlayerMoveController playerMoveController,
-            FinishPirsController finishPirsController,
-            PlayerMoneyController playerMoneyController,
             FinalLevelWindowController finalLevelWindowController,
             PlayerMoneyModel playerMoneyModel,
             AvitoWindowController avitoWindowController,
             StartLevelGhostsRepository ghostsRepository,
-            CameraController cameraController)
+            CameraController cameraController,
+            GroundController groundController,
+            GameModel gameModel)
         {
             m_levelModel = levelModel;
             m_letSpawner = letSpawner;
             m_playerMoveController = playerMoveController;
-            m_finishPirsController = finishPirsController;
-            m_playerMoneyController = playerMoneyController;
             m_finalLevelWindowController = finalLevelWindowController;
             m_playerMoneyModel = playerMoneyModel;
             m_avitoWindowController = avitoWindowController;
             m_cameraController = cameraController;
             m_ghostsRepository = ghostsRepository;
+            m_groundController = groundController;
+            m_gameModel = gameModel;
         }
         
         public void Initialize()
@@ -61,6 +70,7 @@ namespace _Scripts.CoreScene
         public void StartSwimming()
         {
             ShipState = ShipState.Swimming;
+            m_groundController.StartGroundMove();
             m_letSpawner.StartSpawnBarricade().Forget();
             
             m_playerMoveController.GoToCenterLine();
@@ -72,12 +82,10 @@ namespace _Scripts.CoreScene
         public void FinishLevel()
         {
             LevelFinished?.Invoke();
-            m_playerMoveController.GoToLastLine();
-            m_finishPirsController.GoPirsToVisionPosition(() =>
+            m_playerMoveController.GoToLastLine(() =>
             {
-                FinishLevelAsync();
+                FinishLevelAsync().Forget();
             });
-            
             m_cameraController.MoveToFinishPoint();
         }
 

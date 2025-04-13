@@ -18,12 +18,14 @@ namespace _Scripts.CoreScene
         private LevelStarter m_levelStarter;
         private PlayerMoneyController m_playerMoneyController;
         private GameManager m_gameManager;
+        private LetSpawner m_letSpawner;
 
         [Inject]
         public void Construct(ClickerByCircle clickerByCircle,
             LevelModel levelModel,
             LevelStarter levelStarter,
             PlayerMoneyController playerMoneyController,
+            LetSpawner letSpawner,
             GameManager gameManager)
         {
             m_clickerByCircle = clickerByCircle;
@@ -31,6 +33,7 @@ namespace _Scripts.CoreScene
             m_levelStarter = levelStarter;
             m_playerMoneyController = playerMoneyController;
             m_gameManager = gameManager;
+            m_letSpawner = letSpawner;
             
             m_clickerByCircle.FinishClickEvent += OnFinishClickEnvent;
             m_gameManager.LevelStarted += OnLevelStarted;
@@ -41,24 +44,31 @@ namespace _Scripts.CoreScene
             if (!result)
             {
                 m_playerMoneyController.DropMoneyFromBoard(2).Forget();
+                return;
                 // TODO: drop passenger
             }
             
             Enemies.ForEach(e => e.SetActive(false));
+
+            if (m_levelModel.BarricadesCount - m_letSpawner.CurrentBarricade * m_levelModel.SpawnBaricadesDelay > 8)
+            {
+                StartClickEvent(5).Forget();
+            }
         }
+        
 
         private void OnLevelStarted()
         {
-            int maxTimeToSpawn = (m_levelModel.BarricadesCount - 2) * m_levelModel.SpawnBaricadesDelay * 1000;
+            int maxTimeToSpawn = (m_levelModel.BarricadesCount) * m_levelModel.SpawnBaricadesDelay;
 
-            int delayBeforeStart = Random.Range(0, maxTimeToSpawn);
+            int delayBeforeStart = Random.Range(4, maxTimeToSpawn);
             
             StartClickEvent(delayBeforeStart).Forget();
         }
 
         public async UniTask StartClickEvent(int delayBeforeStart)
         {
-            await UniTask.Delay(delayBeforeStart);
+            await UniTask.Delay(delayBeforeStart * 1000);
 
             m_clickerByCircle.StartClickEvent(m_levelModel.ClickCountForClickerEvent);
             int enemyIndex = Random.Range(0, Enemies.Count);
