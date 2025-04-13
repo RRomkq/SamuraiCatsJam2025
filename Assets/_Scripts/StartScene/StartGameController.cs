@@ -15,7 +15,7 @@ namespace _Scripts.StartScene
         [SerializeField] private Button m_startButton;
         [SerializeField] private GameObject m_releaseDateContainer;
 
-        private void Start()
+        private void Awake()
         {
             ChangeState();
         }
