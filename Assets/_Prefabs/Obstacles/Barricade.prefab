@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsReallyLastBarricade: 0
+  m_destroySprite: {fileID: -1702170517, guid: eb037212b33c3474fb30e5621f5a0186, type: 3}
+  m_image: {fileID: 4476719732186920360}
 --- !u!1001 &2462431403863948208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -224,6 +226,12 @@ PrefabInstance:
 --- !u!4 &1245186485958332806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3705225346413128246, guid: 0a8779e50db922d468ba912b1161eab0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2462431403863948208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &4476719732186920360 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 2021219787197648408, guid: 0a8779e50db922d468ba912b1161eab0,
     type: 3}
   m_PrefabInstance: {fileID: 2462431403863948208}
   m_PrefabAsset: {fileID: 0}

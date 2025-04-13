@@ -15,12 +15,11 @@ namespace _Scripts.CoreScene
         private ScreenFadeController m_screenFadeController;
         private LetSpawner m_letSpawner;
         private PlayerMoveController m_playerMoveController;
-        private FinishPirsController m_finishPirsController;
-        private PlayerMoneyController m_playerMoneyController;
         private FinalLevelWindowController m_finalLevelWindowController;
         private PlayerMoneyModel m_playerMoneyModel;
         private AvitoWindowController m_avitoWindowController;
         private CameraController m_cameraController;
+        private GroundController m_groundController;
         
         public ShipState ShipState { get; set; }
         public bool IsLastBarricadeComplete { get; set; } = false;
@@ -28,22 +27,20 @@ namespace _Scripts.CoreScene
         public GameManager(LevelModel levelModel,
             LetSpawner letSpawner,
             PlayerMoveController playerMoveController,
-            FinishPirsController finishPirsController,
-            PlayerMoneyController playerMoneyController,
             FinalLevelWindowController finalLevelWindowController,
             PlayerMoneyModel playerMoneyModel,
             AvitoWindowController avitoWindowController,
-            CameraController cameraController)
+            CameraController cameraController,
+            GroundController groundController)
         {
             m_levelModel = levelModel;
             m_letSpawner = letSpawner;
             m_playerMoveController = playerMoveController;
-            m_finishPirsController = finishPirsController;
-            m_playerMoneyController = playerMoneyController;
             m_finalLevelWindowController = finalLevelWindowController;
             m_playerMoneyModel = playerMoneyModel;
             m_avitoWindowController = avitoWindowController;
             m_cameraController = cameraController;
+            m_groundController = groundController;
         }
         
         public void Initialize()
@@ -54,6 +51,7 @@ namespace _Scripts.CoreScene
         public void StartSwimming()
         {
             ShipState = ShipState.Swimming;
+            m_groundController.StartGroundMove();
             m_letSpawner.StartSpawnBarricade().Forget();
             
             m_playerMoveController.GoToCenterLine();
@@ -65,12 +63,10 @@ namespace _Scripts.CoreScene
         public void FinishLevel()
         {
             LevelFinished?.Invoke();
-            m_playerMoveController.GoToLastLine();
-            m_finishPirsController.GoPirsToVisionPosition(() =>
+            m_playerMoveController.GoToLastLine(() =>
             {
-               FinishLevelAsync().Forget();
+                FinishLevelAsync().Forget();
             });
-            
             m_cameraController.MoveToFinishPoint();
         }
 

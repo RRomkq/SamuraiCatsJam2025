@@ -1,6 +1,7 @@
 using System;
 using _Scripts.CoreScene.Player;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -17,6 +18,8 @@ namespace _Scripts.CoreScene
         private LevelStarter m_levelStarter;
         private FinalLevelWindowController m_finalLevelWindowController;
         private PlayerMoneyController m_playerMoneyController;
+
+        private Tween m_tween;
         
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
@@ -37,12 +40,18 @@ namespace _Scripts.CoreScene
         {
             m_finalLevelWindowController.Hide();
             m_playerMoneyController.GetMoneyFromBoard().Forget();
-            m_playerMoveController.MoveTo(screenOutTarget, DURATION * 2);
+            m_tween = m_playerMoveController.MoveTo(screenOutTarget, DURATION * 2);
             m_screenFadeController.AlphaToAndDoAction(1, DURATION, ResetPlayer);
         }
 
         private void ResetPlayer()
         {
+            if (m_tween != null)
+            {
+                m_tween.Kill();
+                m_tween = null;
+            }
+            
             m_levelStarter.StartLevel();
         }
     }

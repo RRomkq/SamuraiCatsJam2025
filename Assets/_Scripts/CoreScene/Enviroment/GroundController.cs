@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -18,20 +19,33 @@ namespace _Scripts.CoreScene.Enviroment
             m_levelModel = levelModel;
         }
 
+        private void Awake()
+        {
+            GroundMaterial.SetFloat("_AllSpeed", 0);
+        }
+
         private void Update()
         {
             if (m_gameManager.ShipState != ShipState.Swimming)
             {
-                GroundMaterial.SetFloat("_AllSpeed", 0);
                 WaterMaterial.SetFloat("_AllSpeed", 0.2f);
             }
             else
             {
-                float groundSpeed = m_levelModel.GroundSpeedByLevels[(int)m_levelModel.DifficultyLevel];
                 float waterSpeed = m_levelModel.WaterSpeedByLevels[(int)m_levelModel.DifficultyLevel];
-                GroundMaterial.SetFloat("_AllSpeed", groundSpeed);
                 WaterMaterial.SetFloat("_AllSpeed", waterSpeed);
             }
+        }
+
+        public void StartGroundMove()
+        {
+            float groundSpeed = m_levelModel.GroundSpeedByLevels[(int)m_levelModel.DifficultyLevel];
+            GroundMaterial.SetFloat("_AllSpeed", groundSpeed);
+        }
+
+        public void StopGroundMove()
+        {
+            GroundMaterial.SetFloat("_AllSpeed", 0);
         }
     }
 }

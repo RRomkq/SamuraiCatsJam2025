@@ -47,6 +47,11 @@ namespace _Scripts.CoreScene.Player
 
         public async UniTask DropMoneyFromBoard(int amount)
         {
+            if (m_playerMoneyModel.MoneyOnBoard == 0)
+            {
+                return;
+            }
+            
             m_playerMoneyModel.SubMoneyOnBoard(amount);
             
             for (int i = 0; i < amount; i++)
@@ -71,7 +76,8 @@ namespace _Scripts.CoreScene.Player
             Vector3[] path = new Vector3[] { start, control, end };
 
             GameObject projectile = m_instantiator.InstantiatePrefab(GetMoneyPrefab, start, Quaternion.identity, transform);
-
+            projectile.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+            
             // Отключим физику, чтобы DOTween управлял
             var rb = projectile.GetComponent<Rigidbody2D>();
             if (rb) rb.isKinematic = true;

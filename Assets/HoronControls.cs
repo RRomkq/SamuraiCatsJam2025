@@ -33,7 +33,7 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
                     ""id"": ""c8eaec3c-22f6-4385-b4fb-e4236bd6149b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 },
                 {
@@ -69,6 +69,17 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""96332c23-0079-40bd-96e3-8604fc615cd2"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn Left"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""823eca6f-cbe8-404b-aa84-c6455ed7d5bf"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
@@ -80,7 +91,29 @@ public partial class @HoronControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""3e461eff-52a0-4449-ac26-9002b310cbd0"",
+                    ""id"": ""6c0c394d-9340-40ce-9f96-e3b1f7d94618"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Turn Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""52ce95e4-210b-4243-8235-34d89d3a3fd9"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1a64339f-d9e7-4cfe-aa27-3e2d043a9a7a"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",

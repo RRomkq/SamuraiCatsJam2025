@@ -49,16 +49,16 @@ namespace _Scripts.CoreScene
 
         private void OnLevelStarted()
         {
-            int maxTimeToSpawn = (m_levelModel.BarricadesCount - 2) * m_levelModel.SpawnBaricadesDelay * 1000;
+            int maxTimeToSpawn = (m_levelModel.BarricadesCount) * m_levelModel.SpawnBaricadesDelay;
 
-            int delayBeforeStart = Random.Range(0, maxTimeToSpawn);
+            int delayBeforeStart = Random.Range(2, maxTimeToSpawn);
             
             StartClickEvent(delayBeforeStart).Forget();
         }
 
         public async UniTask StartClickEvent(int delayBeforeStart)
         {
-            await UniTask.Delay(delayBeforeStart);
+            await UniTask.Delay(delayBeforeStart * 1000);
 
             m_clickerByCircle.StartClickEvent(m_levelModel.ClickCountForClickerEvent);
             int enemyIndex = Random.Range(0, Enemies.Count);

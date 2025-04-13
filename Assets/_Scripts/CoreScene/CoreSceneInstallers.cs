@@ -39,6 +39,7 @@ public class CoreSceneInstallers : MonoInstaller
         Container.Bind<GlobalGameSettings>().FromInstance(GlobalGameSettings).AsSingle();
         Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
         Container.BindInterfacesAndSelfTo<ClickerEventController>().FromComponentsInHierarchy().AsSingle();
+        Container.Bind<GroundController>().FromComponentsInHierarchy().AsSingle();
     }
 
     private void UseLevelControllers()

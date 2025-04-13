@@ -2,6 +2,7 @@ using System;
 using _Scripts.CoreScene.Player;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace _Scripts.CoreScene.Enviroment
@@ -13,6 +14,9 @@ namespace _Scripts.CoreScene.Enviroment
         private PassengerOnBoardModel m_passengerOnBoardModel;
         public bool IsReallyLastBarricade;
         private bool m_isDestroy = false;
+
+        public Sprite m_destroySprite;
+        public SpriteRenderer m_image;
         
         [Inject]
         public void Construct(GameManager gameManager, PlayerMoneyController playerMoneyController, PassengerOnBoardModel passengerOnBoardModel)
@@ -20,6 +24,7 @@ namespace _Scripts.CoreScene.Enviroment
             m_gameManager = gameManager;
             m_playerMoneyController = playerMoneyController;
             m_passengerOnBoardModel = passengerOnBoardModel;
+            Destroy(gameObject, 20f);
         }
         
         private void OnTriggerEnter(Collider other)
@@ -36,7 +41,9 @@ namespace _Scripts.CoreScene.Enviroment
                     m_isDestroy = true;
                     m_passengerOnBoardModel.PassengersCount -= 1;
                     m_playerMoneyController.DropMoneyFromBoard(2).Forget();
-                    Destroy(gameObject);
+
+                    m_image.sprite = m_destroySprite;
+                    m_image.sortingOrder = 0;
                 }
             }
         }

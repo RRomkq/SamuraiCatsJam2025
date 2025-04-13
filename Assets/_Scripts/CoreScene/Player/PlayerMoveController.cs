@@ -19,14 +19,16 @@ public class PlayerMoveController : MonoBehaviour
 
     private int m_currentLine = 1;
     private LevelModel m_levelModel;
+    private FinishPirsController m_finishPirsController;
 
     public event Action Click;
 
     [Inject]
-    public void Construct(LineHandler lineHandler, LevelModel levelModel)
+    public void Construct(LineHandler lineHandler, LevelModel levelModel, FinishPirsController finishPirsController)
     {
         m_lineHandler = lineHandler;
         m_levelModel = levelModel;
+        m_finishPirsController = finishPirsController;
     }
 
     private void Awake()
@@ -65,20 +67,21 @@ public class PlayerMoveController : MonoBehaviour
         m_currentLine = 2;
     }
     
-    public void GoToLastLine()
+    public void GoToLastLine(Action action)
     {
         MoveTo(m_lineHandler.HaronLines.Last(), ForceToLineDuration*(m_lineHandler.HaronLines.Count - m_currentLine));
+        m_finishPirsController.GoPirsToVisionPosition(action, ForceToLineDuration*(m_lineHandler.HaronLines.Count - m_currentLine));
         m_currentLine = m_lineHandler.HaronLines.Count - 1;
     }
-
-    public void MoveTo(Transform target)
+    
+    public Tween MoveTo(Transform target)
     {
-        transform.DOMove(target.position, ForceToLineDuration).SetEase(Ease.Linear);
+        return transform.DOMove(target.position, ForceToLineDuration).SetEase(Ease.Linear);
     }
 
-    public void MoveTo(Transform target, float duration)
+    public Tween MoveTo(Transform target, float duration)
     {
-        transform.DOMove(target.position, duration).SetEase(Ease.Linear);
+        return transform.DOMove(target.position, duration).SetEase(Ease.Linear);
     }
 
     public void GoToTargetInstant(Transform target)
