@@ -22,8 +22,9 @@ namespace _Scripts.CoreScene.Player
 
         public AudioSource Coins;
         public AudioSource GetCoins;
+        public AudioSource GostAudio;
         
-        [Inject]
+        [Inject]    
         public void Construct(IInstantiator instantiator, PlayerMoneyModel playerMoneyModel)
         {
             m_instantiator = instantiator;
@@ -32,6 +33,7 @@ namespace _Scripts.CoreScene.Player
         
         public async UniTask AddMoneyOnBoard(int amount)
         {
+            GostAudio.Play();
             m_playerMoneyModel.AddMoneyOnBoard(amount);
             GetCoins.Play();
             for (int i = 0; i < amount; i++)
