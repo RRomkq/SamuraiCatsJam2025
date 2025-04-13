@@ -57,12 +57,8 @@ public class PlayerMoveController : MonoBehaviour
             return;
         }
 
-        if (m_audioS == null)
+        if (m_audioS == null || !m_audioS.isPlaying)
         {
-            if (m_audioS.isPlaying)
-            {
-                m_audioS.Stop();
-            }
             m_audioS = m_audioSources[Random.Range(0, m_audioSources.Count)];
             m_audioS.Play();
         }
