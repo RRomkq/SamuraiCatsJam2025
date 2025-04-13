@@ -45,5 +45,10 @@ namespace _Scripts.CoreScene.Speech
         {
             return m_haronActor;
         }
+
+        public void UnregisterSpeechActor(SpeechActor speechActor)
+        {
+            m_actors.Remove(speechActor);
+        }
     }
 }

@@ -5,8 +5,11 @@
 // -------------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Linq;
 using _Scripts.CoreScene.Speech;
 using _Scripts.CoreScene.Speech.Model;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
@@ -65,6 +68,39 @@ namespace _Scripts.CoreScene.Enviroment
             GameObject ghost = Instantiate(m_ghostContainerSample);
             ghost.transform.localScale = Vector3.one;
             return ghost;
+        }
+
+        public async void KillGhost()
+        {
+            if (m_spawnedGhosts.Count == 0)
+            {
+                return;
+            }
+            
+            int lastIndex = m_spawnedGhosts.Count - 1;
+            GameObject ghost = m_spawnedGhosts[lastIndex];
+            m_spawnedGhosts.RemoveAt(lastIndex);
+            
+            m_actorsManager.UnregisterSpeechActor(ghost.GetComponent<SpeechActor>());
+            
+            Sequence blinkSequence = DOTween.Sequence();
+
+            List<SpriteRenderer> spriteRenderers = ghost.GetComponentsInChildren<SpriteRenderer>().ToList();
+            
+            for (int i = 0; i < 3; i++)
+            {
+                foreach (var spriteRenderer in spriteRenderers)
+                {
+                    // Исчезновение (цвет становится прозрачным)
+                    blinkSequence.Append(spriteRenderer.DOFade(0f, 0.25f));
+                    // Появление (возвращаем альфу в 1)
+                    blinkSequence.Append(spriteRenderer.DOFade(1f, 0.25f));
+                }
+            }
+
+            await UniTask.Delay(1500);
+            
+            DestroyImmediate(ghost);
         }
     }
 }

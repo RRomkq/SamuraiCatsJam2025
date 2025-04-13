@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using _Scripts.CoreScene.Enviroment;
 using _Scripts.CoreScene.Player;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace _Scripts.CoreScene
         private PlayerMoneyController m_playerMoneyController;
         private GameManager m_gameManager;
         private LetSpawner m_letSpawner;
+        private LevelGhostsRepository m_levelGhostsRepository;
 
         [Inject]
         public void Construct(ClickerByCircle clickerByCircle,
@@ -28,6 +30,7 @@ namespace _Scripts.CoreScene
             LevelStarter levelStarter,
             PlayerMoneyController playerMoneyController,
             LetSpawner letSpawner,
+            LevelGhostsRepository levelGhostsRepository,
             GameManager gameManager)
         {
             m_clickerByCircle = clickerByCircle;
@@ -36,6 +39,7 @@ namespace _Scripts.CoreScene
             m_playerMoneyController = playerMoneyController;
             m_gameManager = gameManager;
             m_letSpawner = letSpawner;
+            m_levelGhostsRepository = levelGhostsRepository;
             
             m_clickerByCircle.FinishClickEvent += OnFinishClickEnvent;
             m_gameManager.LevelStarted += OnLevelStarted;
@@ -46,6 +50,9 @@ namespace _Scripts.CoreScene
             if (!result)
             {
                 m_playerMoneyController.DropMoneyFromBoard(2).Forget();
+
+                m_levelGhostsRepository.KillGhost();
+                
                 return;
                 // TODO: drop passenger
             }
@@ -57,7 +64,6 @@ namespace _Scripts.CoreScene
                 StartClickEvent(5).Forget();
             }
         }
-        
 
         private void OnLevelStarted()
         {

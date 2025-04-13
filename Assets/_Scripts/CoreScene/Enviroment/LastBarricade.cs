@@ -1,8 +1,6 @@
-using System;
 using _Scripts.CoreScene.Player;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace _Scripts.CoreScene.Enviroment
@@ -18,13 +16,20 @@ namespace _Scripts.CoreScene.Enviroment
 
         public Sprite m_destroySprite;
         public SpriteRenderer m_image;
+
+        private LevelGhostsRepository m_levelGhostsRepository;
         
         [Inject]
-        public void Construct(GameManager gameManager, PlayerMoneyController playerMoneyController, PassengerOnBoardModel passengerOnBoardModel)
+        public void Construct(GameManager gameManager, 
+            PlayerMoneyController playerMoneyController,
+            LevelGhostsRepository levelGhostsRepository,
+            PassengerOnBoardModel passengerOnBoardModel)
         {
             m_gameManager = gameManager;
             m_playerMoneyController = playerMoneyController;
             m_passengerOnBoardModel = passengerOnBoardModel;
+            m_levelGhostsRepository = levelGhostsRepository;
+            
             Destroy(gameObject, 20f);
         }
         
@@ -44,6 +49,8 @@ namespace _Scripts.CoreScene.Enviroment
                     m_playerMoneyController.DropMoneyFromBoard(2).Forget();
                     AudioSource.Play();
 
+                    m_levelGhostsRepository.KillGhost();
+                    
                     m_image.sprite = m_destroySprite;
                     m_image.sortingOrder = 0;
                 }
