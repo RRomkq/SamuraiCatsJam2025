@@ -419,6 +419,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 170176571}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &188748880 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1482159431454536205, guid: 1be45045fc681254ebe4079a70e5bed6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3035711966360839285}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b50e2747dd048b89ddb88c935adc5cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &194511005 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6857080335633893212, guid: 027303051aa02244bbfb26e5ed8efe65,
@@ -2693,7 +2705,7 @@ MonoBehaviour:
   - {fileID: 111293845}
   - {fileID: 509866573}
   - {fileID: 153981887}
-  m_haronActor: {fileID: 0}
+  m_haronActor: {fileID: 188748880}
   m_speechSO: {fileID: 11400000, guid: fe9b2e0b484c9d843969242105b3af5c, type: 2}
 --- !u!114 &1614156792
 MonoBehaviour:
@@ -3038,7 +3050,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: FinishPirsHandler (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6024728848497392276, guid: c8e27f303497f9a4fbb697ac03976a21, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

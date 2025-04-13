@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8826722196973381356}
+  - component: {fileID: 3501348040897374438}
   m_Layer: 0
   m_Name: Pirs
   m_TagString: Untagged
@@ -34,6 +35,19 @@ Transform:
   - {fileID: 2879036223960892217}
   m_Father: {fileID: 8992347668600882077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3501348040897374438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018595559686015610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f625b4585c954befbf33904504093bd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisionPosition: {fileID: 4997794190691805204}
 --- !u!1 &3754271064667289921
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,7 +58,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8992347668600882077}
   - component: {fileID: 6333663839771024934}
-  - component: {fileID: 2804884773086955267}
   m_Layer: 0
   m_Name: StartPirsHandler
   m_TagString: Untagged
@@ -81,19 +94,6 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_SortAtRoot: 1
---- !u!114 &2804884773086955267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3754271064667289921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f625b4585c954befbf33904504093bd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VisionPosition: {fileID: 4997794190691805204}
 --- !u!1 &5163892440064449459
 GameObject:
   m_ObjectHideFlags: 0

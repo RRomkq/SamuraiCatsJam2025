@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1444847820962361929}
+  - component: {fileID: 2651374155123760951}
   m_Layer: 0
   m_Name: Pirs
   m_TagString: Untagged
@@ -34,6 +35,19 @@ Transform:
   - {fileID: 651572461112784318}
   m_Father: {fileID: 4194172458092633057}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2651374155123760951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4255466632067443128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a87aee8c9ce4f2088e6873221186650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VisionPosition: {fileID: 8687565659528966978}
 --- !u!1 &5113124208629646626
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +57,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4194172458092633057}
-  - component: {fileID: 6024728848497392276}
   m_Layer: 0
   m_Name: FinishPirsHandler
   m_TagString: Untagged
@@ -68,19 +81,6 @@ Transform:
   - {fileID: 8687565659528966978}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6024728848497392276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5113124208629646626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a87aee8c9ce4f2088e6873221186650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VisionPosition: {fileID: 8687565659528966978}
 --- !u!1 &7995475508341854581
 GameObject:
   m_ObjectHideFlags: 0
