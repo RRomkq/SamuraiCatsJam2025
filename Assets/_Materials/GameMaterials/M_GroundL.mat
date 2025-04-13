@@ -59,7 +59,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AllSpeed: 0
+    - _AllSpeed: 2
     - _Cef: 0
     - _Rotate: 0
     m_Colors:

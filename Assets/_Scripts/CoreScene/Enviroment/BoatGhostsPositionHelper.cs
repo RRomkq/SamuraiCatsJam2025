@@ -4,6 +4,7 @@
 // Copyright (c) 2019-2024 Gear Games, LTD. All rights reserved.
 // -------------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace _Scripts.CoreScene.Enviroment
         private List<GhostSpawnPoint> m_points;
 
         private Dictionary<GhostSpawnPoint, bool> m_bisyPoints;
+        public AudioSource m_audioSource;
         
         private void Awake()
         {
@@ -29,7 +31,19 @@ namespace _Scripts.CoreScene.Enviroment
                 m_bisyPoints.Add(startPirsSpawnPoint, false);
             }
         }
-        
+
+        private void Update()
+        {
+            /*if (m_bisyPoints.Count(k => k.Value) == 0 && m_audioSource.isPlaying)
+            {
+                m_audioSource.Stop();
+            }
+            else if (!m_audioSource.isPlaying)
+            {
+                m_audioSource.Play();
+            }*/
+        }
+
         public void Reset()
         {
             m_bisyPoints.Clear();

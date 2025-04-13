@@ -12,6 +12,8 @@ namespace _Scripts.CoreScene
     public class ClickerEventController: MonoBehaviour, IDisposable
     {
         public List<GameObject> Enemies = new List<GameObject>();
+
+        public AudioSource AdAudioSource;
         
         private ClickerByCircle m_clickerByCircle;
         private LevelModel m_levelModel;
@@ -72,6 +74,12 @@ namespace _Scripts.CoreScene
 
             m_clickerByCircle.StartClickEvent(m_levelModel.ClickCountForClickerEvent);
             int enemyIndex = Random.Range(0, Enemies.Count);
+
+            if (enemyIndex < 4)
+            {
+                AdAudioSource.Play();
+            }
+            
             Enemies[enemyIndex].SetActive(true);
         }
 
