@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -11,6 +12,7 @@ namespace _Scripts.CoreScene
     {
         public Image m_circle;
         public GameObject Parent;
+        public GameObject SpaceText;
         private int m_needClickCount;
         private int m_currentClick;
         private PlayerMoveController m_playerMoveController;
@@ -42,6 +44,7 @@ namespace _Scripts.CoreScene
             m_needClickCount = needClickCount;
             
             Parent.SetActive(true);
+            AnimateClickSpaceText(m_cts.Token).Forget();
         }
 
         private void OnClick()
@@ -52,6 +55,27 @@ namespace _Scripts.CoreScene
             if (m_currentClick == m_needClickCount)
             {
                 Finish(true);
+            }
+        }
+
+        private async UniTask AnimateClickSpaceText(CancellationToken token)
+        {
+            try
+            {
+                while (true)
+                {
+                    SpaceText.transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.5f, elasticity: 0.5f);
+                    await UniTask.Delay(500, cancellationToken: token);
+                }
+            }
+            catch (OperationCanceledException)
+            {
+                
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
             }
         }
 
