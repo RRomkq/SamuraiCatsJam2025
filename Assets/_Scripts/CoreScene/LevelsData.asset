@@ -17,49 +17,49 @@ MonoBehaviour:
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100
   - SpawnBaricadesDelay: 3
     Speed: 10
     BarricadesRawCount: 3
     HoronSpeed: 1
-    ClickCountForClickerEvent: 1
+    ClickCountForClickerEvent: 100

@@ -48,5 +48,8 @@ namespace _Scripts.CoreScene
         public int WinMoney => m_globalGameSettings.WinMoneyCount;
         
         public float HoronSpeed => m_levelSettings.HoronSpeed;
+        
+        public int ClickCountForClickerEvent => m_levelSettings.ClickCountForClickerEvent;
+        
     }
 }

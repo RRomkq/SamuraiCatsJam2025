@@ -54,10 +54,12 @@ namespace _Scripts.CoreScene
             m_letSpawner.StartSpawnBarricade().Forget();
             
             m_playerMoveController.GoToCenterLine();
+            LevelStarted?.Invoke();
         }
         
         public void FinishLevel()
         {
+            LevelFinished?.Invoke();
             m_playerMoveController.GoToLastLine();
             m_finishPirsController.GoPirsToVisionPosition(() =>
             {
@@ -78,5 +80,9 @@ namespace _Scripts.CoreScene
                 m_finalLevelWindowController.Show();
             }
         }
+
+        public event Action LevelFinished;
+
+        public event Action LevelStarted;
     }
 }
