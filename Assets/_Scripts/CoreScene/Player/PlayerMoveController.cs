@@ -22,6 +22,8 @@ public class PlayerMoveController : MonoBehaviour
     private FinishPirsController m_finishPirsController;
     private GameModel m_gameModel;
 
+    private Tween m_lastTween;
+
     public event Action Click;
 
     [Inject]
@@ -57,7 +59,12 @@ public class PlayerMoveController : MonoBehaviour
 
     public void GoToFirstLine(Action onComplete)
     {
-        transform.DOMove(m_lineHandler.HaronLines.First().position, 3)
+        if (m_lastTween != null)
+        {
+            m_lastTween.Kill();
+        }
+        
+        m_lastTween = transform.DOMove(m_lineHandler.HaronLines.First().position, 3)
             .SetEase(Ease.Linear)
             .OnComplete(onComplete.Invoke);
         m_currentLine = 0;
@@ -78,12 +85,19 @@ public class PlayerMoveController : MonoBehaviour
     
     public Tween MoveTo(Transform target)
     {
-        return transform.DOMove(target.position, ForceToLineDuration).SetEase(Ease.Linear);
+        return MoveTo(target, ForceToLineDuration);
     }
 
     public Tween MoveTo(Transform target, float duration)
     {
-        return transform.DOMove(target.position, duration).SetEase(Ease.Linear);
+        if (m_lastTween != null)
+        {
+            m_lastTween.Kill();
+        }
+        
+        m_lastTween = transform.DOMove(target.position, duration).SetEase(Ease.Linear);
+
+        return m_lastTween;
     }
 
     public void GoToTargetInstant(Transform target)
