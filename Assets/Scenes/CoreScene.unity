@@ -2527,6 +2527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StartPirsHandler
       objectReference: {fileID: 0}
+    - target: {fileID: 6333663839771024934, guid: 061047671d6b80d4c9a97d6c3076c906,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8992347668600882077, guid: 061047671d6b80d4c9a97d6c3076c906,
         type: 3}
       propertyPath: m_LocalPosition.x
