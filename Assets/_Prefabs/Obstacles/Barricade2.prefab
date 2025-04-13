@@ -13,6 +13,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Barricade2
       objectReference: {fileID: 0}
+    - target: {fileID: 4476719732186920360, guid: f6ff47a4c9fea3f4a9a925ef17ceb5ad,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1095860491, guid: eb037212b33c3474fb30e5621f5a0186,
+        type: 3}
     - target: {fileID: 4524018701074845860, guid: f6ff47a4c9fea3f4a9a925ef17ceb5ad,
         type: 3}
       propertyPath: m_LocalPosition.x

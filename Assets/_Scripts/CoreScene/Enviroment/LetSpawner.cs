@@ -67,7 +67,8 @@ public class LetSpawner: MonoBehaviour
             {
                 Transform line = m_lineHandler.BarricadeLines[i];
 
-                m_instantiator.InstantiatePrefab(barricadePrefab[Random.Range(0, barricadePrefab.Count)], line.position, quaternion.identity, line.transform);
+                GameObject go = m_instantiator.InstantiatePrefab(barricadePrefab[Random.Range(0, barricadePrefab.Count)], line.position, quaternion.identity, line.transform);
+                go.transform.localScale = new Vector3(Random.Range(5, 10), Random.Range(5, 10), 1);
             }
         }
         

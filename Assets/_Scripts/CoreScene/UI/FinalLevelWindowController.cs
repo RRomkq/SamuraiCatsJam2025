@@ -59,7 +59,7 @@ namespace _Scripts.CoreScene
             MoneyRewardText.text = "0";
             for (int i = 0; i < monye; i++)
             {
-                MoneyRewardText.text = i.ToString();
+                MoneyRewardText.text = (i + 1).ToString();
                 await UniTask.Delay(100);
             }
         }
