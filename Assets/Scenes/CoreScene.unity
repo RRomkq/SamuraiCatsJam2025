@@ -408,7 +408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &203198659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -525,6 +525,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_gotoNextSceneButton: {fileID: 203198660}
   m_isActiveByDefault: 1
+  ClickByButtonSound: {fileID: 0}
 --- !u!1 &223609178
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +721,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 661413603}
     m_Modifications:
+    - target: {fileID: 837956493797446319, guid: 9753d63b88ee0234aa24a4c9fd305077,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4264213790244707858, guid: 9753d63b88ee0234aa24a4c9fd305077,
         type: 3}
       propertyPath: m_AnchorMax.x
