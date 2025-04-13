@@ -14,11 +14,13 @@ namespace _Scripts.CoreScene.Player
         public void AddMoneyOnBoard(int value)
         {
             m_moneyOnBoard += value;
+            OnMoneyOnBoardChanged?.Invoke();
         }
         
         public void SubMoneyOnBoard(int value)
         {
             m_moneyOnBoard -= value;
+            OnMoneyOnBoardChanged?.Invoke();
         }
         
         public void AddMoney(int value)
@@ -28,5 +30,7 @@ namespace _Scripts.CoreScene.Player
         }
 
         public event Action OnMoneyChanged;
+
+        public event Action OnMoneyOnBoardChanged;
     }
 }

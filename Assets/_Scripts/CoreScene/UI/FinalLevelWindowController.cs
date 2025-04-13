@@ -34,7 +34,7 @@ namespace _Scripts.CoreScene
         {
             gameObject.SetActive(true);
             RemainingPassengersView?.SetText(m_passengerOnBoardModel.PassengersCount, m_passengerOnBoardModel.MaxPassengersOnBoard);
-            MoneyRewardText.text = m_playerMoneyModel.MoneyOnBoard.ToString();
+            SetRewardMoneyAsync().Forget();
 
             for (int i = 0; i < FeedbackTexts.Count; i++)
             {
@@ -50,6 +50,16 @@ namespace _Scripts.CoreScene
             
                 StartTextWrite(feedback.message, FeedbackTexts[i]).Forget();
                 StarControllers[i].CreateStars(feedback.starCount).Forget();
+            }
+        }
+
+        public async UniTask SetRewardMoneyAsync()
+        {
+            int monye = m_playerMoneyModel.MoneyOnBoard;
+            for (int i = 0; i < monye; i++)
+            {
+                MoneyRewardText.text = monye.ToString();
+                await UniTask.Delay(100);
             }
         }
 

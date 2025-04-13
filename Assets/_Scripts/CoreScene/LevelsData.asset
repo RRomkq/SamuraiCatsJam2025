@@ -13,53 +13,58 @@ MonoBehaviour:
   m_Name: LevelsData
   m_EditorClassIdentifier: 
   LevelSettingsMap:
+  - SpawnBaricadesDelay: 2
+    Speed: 11
+    BarricadesRawCount: 10
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 12
   - SpawnBaricadesDelay: 3
     Speed: 10
-    BarricadesRawCount: 3
+    BarricadesRawCount: 8
     HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
+    ClickCountForClickerEvent: 12
+  - SpawnBaricadesDelay: 2
+    Speed: 12
+    BarricadesRawCount: 11
+    HoronSpeed: 2
+    ClickCountForClickerEvent: 15
+  - SpawnBaricadesDelay: 1
+    Speed: 13
+    BarricadesRawCount: 24
     HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
+    ClickCountForClickerEvent: 17
+  - SpawnBaricadesDelay: 2
+    Speed: 14
+    BarricadesRawCount: 18
+    HoronSpeed: 2
+    ClickCountForClickerEvent: 17
+  - SpawnBaricadesDelay: 2
+    Speed: 16
+    BarricadesRawCount: 24
     HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
+    ClickCountForClickerEvent: 20
+  - SpawnBaricadesDelay: 1
+    Speed: 18
+    BarricadesRawCount: 35
     HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
+    ClickCountForClickerEvent: 20
+  - SpawnBaricadesDelay: 1
+    Speed: 20
+    BarricadesRawCount: 38
     HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
+    ClickCountForClickerEvent: 25
+  - SpawnBaricadesDelay: 2
+    Speed: 17
+    BarricadesRawCount: 27
     HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
-    HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
-    HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
-    HoronSpeed: 1
-    ClickCountForClickerEvent: 100
-  - SpawnBaricadesDelay: 3
-    Speed: 10
-    BarricadesRawCount: 3
-    HoronSpeed: 1
-    ClickCountForClickerEvent: 100
+    ClickCountForClickerEvent: 25
+  - SpawnBaricadesDelay: 2
+    Speed: 20
+    BarricadesRawCount: 32
+    HoronSpeed: 2
+    ClickCountForClickerEvent: 30
+  - SpawnBaricadesDelay: 2
+    Speed: 20
+    BarricadesRawCount: 35
+    HoronSpeed: 2
+    ClickCountForClickerEvent: 35
