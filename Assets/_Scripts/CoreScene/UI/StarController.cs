@@ -40,6 +40,7 @@ namespace _Scripts.CoreScene
         {
             foreach (var star in m_stars.ToList())
             {
+                star.SetActive(false);
                 Destroy(star);
             }
             m_stars.Clear();
