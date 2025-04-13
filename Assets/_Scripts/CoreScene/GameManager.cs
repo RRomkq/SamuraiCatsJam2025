@@ -8,6 +8,10 @@ namespace _Scripts.CoreScene
 {
     public class GameManager: IInitializable
     {
+        public event Action LevelFinished;
+
+        public event Action LevelStarted;
+        
         private LevelModel m_levelModel;
 
         private DateTime m_finishedTime;
@@ -21,6 +25,7 @@ namespace _Scripts.CoreScene
         private PlayerMoneyModel m_playerMoneyModel;
         private AvitoWindowController m_avitoWindowController;
         private CameraController m_cameraController;
+        private StartLevelGhostsRepository m_ghostsRepository;
         
         public ShipState ShipState { get; set; }
         public bool IsLastBarricadeComplete { get; set; } = false;
@@ -33,6 +38,7 @@ namespace _Scripts.CoreScene
             FinalLevelWindowController finalLevelWindowController,
             PlayerMoneyModel playerMoneyModel,
             AvitoWindowController avitoWindowController,
+            StartLevelGhostsRepository ghostsRepository,
             CameraController cameraController)
         {
             m_levelModel = levelModel;
@@ -44,6 +50,7 @@ namespace _Scripts.CoreScene
             m_playerMoneyModel = playerMoneyModel;
             m_avitoWindowController = avitoWindowController;
             m_cameraController = cameraController;
+            m_ghostsRepository = ghostsRepository;
         }
         
         public void Initialize()
@@ -68,13 +75,13 @@ namespace _Scripts.CoreScene
             m_playerMoveController.GoToLastLine();
             m_finishPirsController.GoPirsToVisionPosition(() =>
             {
-               FinishLevelAsync().Forget();
+                FinishLevelAsync();
             });
             
             m_cameraController.MoveToFinishPoint();
         }
 
-        public async UniTask FinishLevelAsync()
+        public void FinishLevelAsync()
         {
             ShipState = ShipState.Mooring;
             
@@ -86,10 +93,8 @@ namespace _Scripts.CoreScene
             {
                 m_finalLevelWindowController.Show();
             }
+            
+            m_ghostsRepository.DisposeGhosts();
         }
-
-        public event Action LevelFinished;
-
-        public event Action LevelStarted;
     }
 }

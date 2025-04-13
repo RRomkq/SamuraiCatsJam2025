@@ -41,7 +41,7 @@ public class CoreSceneInstallers : MonoInstaller
         Container.BindInterfacesAndSelfTo<ClickerEventController>().FromComponentsInHierarchy().AsSingle();
 
         Container.BindInterfacesAndSelfTo<StartPirsGhostsPositionHelper>().FromComponentsInHierarchy().AsSingle();
-        Container.BindInterfacesAndSelfTo<StartLevelGhostSpawner>().FromComponentsInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<StartLevelGhostsRepository>().FromComponentsInHierarchy().AsSingle();
     }
 
     private void UseLevelControllers()

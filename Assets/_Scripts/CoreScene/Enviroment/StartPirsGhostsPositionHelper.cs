@@ -19,20 +19,20 @@ namespace _Scripts.CoreScene.Enviroment
         private void Awake()
         {
             m_points = GetComponentsInChildren<StartPirsSpawnPoint>().ToList();
+        }
 
+        public void Init()
+        {
             m_bisyPoints = new Dictionary<StartPirsSpawnPoint, bool>();
             foreach (var startPirsSpawnPoint in m_points)
             {
                 m_bisyPoints.Add(startPirsSpawnPoint, false);
             }
         }
-
+        
         public void Reset()
         {
-            foreach (var (key, value) in m_bisyPoints)
-            {
-                m_bisyPoints[key] = false;
-            }
+            m_bisyPoints.Clear();
         }
         
         public void Spawn(GameObject ghost)

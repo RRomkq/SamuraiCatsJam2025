@@ -54,8 +54,15 @@ namespace _Scripts.CoreScene.Speech.UI
                 return;
             }
 
-            UpdatePositionNearActor();
+            if (m_currentActor == null)
+            {
+                Hide();
+                
+                return;
+            }
             
+            UpdatePositionNearActor();
+
             if (!ShowTimeExpired())
             {
                 return;
