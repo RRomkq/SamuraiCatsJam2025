@@ -136,7 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsReallyLastBarricade: 0
   AudioSource: {fileID: 740985127454860587}
-  Coins: {fileID: 1980232871619643065}
   m_destroySprite: {fileID: -1702170517, guid: eb037212b33c3474fb30e5621f5a0186, type: 3}
   m_image: {fileID: 4476719732186920360}
 --- !u!82 &740985127454860587
@@ -151,7 +150,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 03db507d8285745a5840d11128565e59, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
