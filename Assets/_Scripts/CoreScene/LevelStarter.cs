@@ -22,8 +22,6 @@ namespace _Scripts.CoreScene
         private StartButtonController m_startButtonController;
         private PlayerMoneyModel m_playerMoneyModel;
         private PassengerOnBoardModel m_passengerOnBoardModel;
-        
-        private int m_currentLevelIndex = 0;
 
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
@@ -59,7 +57,6 @@ namespace _Scripts.CoreScene
         public void StartLevel()
         {
             m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[m_levelModel.NeedMoneyForPassenger.FindLastIndex(needMoney => needMoney < m_playerMoneyModel.Money)]);
-            m_currentLevelIndex++;
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
             m_screenFadeController.AlphaTo(1, 0);
