@@ -2323,6 +2323,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1421266917295899038}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1985874562 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8261834036214431754, guid: 1be45045fc681254ebe4079a70e5bed6,
+    type: 3}
+  m_PrefabInstance: {fileID: 3035711966360839285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1987026082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5099121292367275684, guid: adcc513b0aefb4c41b5006f9474e02d6,
@@ -3323,6 +3329,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4948840003175948161, guid: 1be45045fc681254ebe4079a70e5bed6,
         type: 3}
+      propertyPath: GetMoneyPosition
+      value: 
+      objectReference: {fileID: 1985874562}
+    - target: {fileID: 4948840003175948161, guid: 1be45045fc681254ebe4079a70e5bed6,
+        type: 3}
+      propertyPath: DropMoneyPosition
+      value: 
+      objectReference: {fileID: 269331219}
+    - target: {fileID: 4948840003175948161, guid: 1be45045fc681254ebe4079a70e5bed6,
+        type: 3}
       propertyPath: PlayerMoneyPosition
       value: 
       objectReference: {fileID: 170176572}
@@ -3375,6 +3391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261834036214431754, guid: 1be45045fc681254ebe4079a70e5bed6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

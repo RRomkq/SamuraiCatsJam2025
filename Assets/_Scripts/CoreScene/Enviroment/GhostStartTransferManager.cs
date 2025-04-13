@@ -4,6 +4,7 @@
 // Copyright (c) 2019-2024 Gear Games, LTD. All rights reserved.
 // -------------------------------------------------------------------------
 
+using _Scripts.CoreScene.Player;
 using _Scripts.CoreScene.Speech;
 using _Scripts.CoreScene.Speech.Model;
 using Cysharp.Threading.Tasks;
@@ -15,12 +16,17 @@ namespace _Scripts.CoreScene.Enviroment
         private LevelGhostsRepository m_ghostsRepository;
         private BoatGhostsPositionHelper m_boatPositionHelper;
         private FinisPirsPositionHelper m_finishPositionHelper;
+        private PlayerMoneyController m_playerMoneyController;
 
-        public GhostStartTransferManager(LevelGhostsRepository mGhostsRepository, BoatGhostsPositionHelper mBoatPositionHelper, FinisPirsPositionHelper mFinishPositionHelper)
+        public GhostStartTransferManager(LevelGhostsRepository mGhostsRepository,
+            BoatGhostsPositionHelper mBoatPositionHelper,
+            FinisPirsPositionHelper mFinishPositionHelper,
+            PlayerMoneyController playerMoneyController)
         {
             m_ghostsRepository = mGhostsRepository;
             m_boatPositionHelper = mBoatPositionHelper;
             m_finishPositionHelper = mFinishPositionHelper;
+            m_playerMoneyController = playerMoneyController;
         }
 
         public async UniTask TransferGhostsFromStartToBoat()
@@ -32,6 +38,8 @@ namespace _Scripts.CoreScene.Enviroment
                 m_boatPositionHelper.Spawn(ghost);
 
                 ghost.GetComponent<SpeechActor>().SpeechSituation = SpeechSituation.BOAT;
+                await m_playerMoneyController
+                    .AddMoneyOnBoard(2);
                 
                 await UniTask.Delay(200);
             }

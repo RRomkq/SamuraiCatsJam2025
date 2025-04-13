@@ -32,7 +32,7 @@ namespace _Scripts.CoreScene.Player
             m_playerMoneyModel.AddMoneyOnBoard(amount);
             for (int i = 0; i < amount; i++)
             {
-                GameObject gameObject = m_instantiator.InstantiatePrefab(ImageMoneyPrefab, GetMoneyPosition.position, Quaternion.identity, GetMoneyPosition);
+                GameObject gameObject = m_instantiator.InstantiatePrefab(GetMoneyPrefab, GetMoneyPosition.position, Quaternion.identity, GetMoneyPosition);
                 SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
                 gameObject.transform.DOMove(DropMoneyPosition.position, 1f);
                 spriteRenderer.DOFade(0, 1f);
