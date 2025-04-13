@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349d0fb922e84ac3a932cf0c8b689626, type: 3}
-  m_Name: Level1Settings
+  m_Script: {fileID: 11500000, guid: a9faca2e6c5946ce8cf737a8b1aa5fd8, type: 3}
+  m_Name: GlobalGameSettings
   m_EditorClassIdentifier: 
-  SpawnBaricadesDelay: 3
-  Speed: 15
-  BarricadesRawCount: 5
+  NeedMoneyForPassenger: 000000000000000002000000060000000c000000140000001e0000002d000000500000007800000096000000c8000000
+  MinMoneyNeedForDifficultyLevel: 000000000c00000050000000
+  WinMoneyCount: 200
   GroundSpeedByLevel:
   - 2
   - 2.4

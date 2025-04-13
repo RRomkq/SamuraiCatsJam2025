@@ -18,6 +18,8 @@ namespace _Scripts.CoreScene
         private FinishPirsController m_finishPirsController;
         private PlayerMoneyController m_playerMoneyController;
         private FinalLevelWindowController m_finalLevelWindowController;
+        private PlayerMoneyModel m_playerMoneyModel;
+        private AvitoWindowController m_avitoWindowController;
         
         public ShipState ShipState { get; set; }
         public bool IsLastBarricadeComplete { get; set; } = false;
@@ -27,7 +29,9 @@ namespace _Scripts.CoreScene
             PlayerMoveController playerMoveController,
             FinishPirsController finishPirsController,
             PlayerMoneyController playerMoneyController,
-            FinalLevelWindowController finalLevelWindowController)
+            FinalLevelWindowController finalLevelWindowController,
+            PlayerMoneyModel playerMoneyModel,
+            AvitoWindowController avitoWindowController)
         {
             m_levelModel = levelModel;
             m_letSpawner = letSpawner;
@@ -35,9 +39,9 @@ namespace _Scripts.CoreScene
             m_finishPirsController = finishPirsController;
             m_playerMoneyController = playerMoneyController;
             m_finalLevelWindowController = finalLevelWindowController;
+            m_playerMoneyModel = playerMoneyModel;
+            m_avitoWindowController = avitoWindowController;
         }
-        
-        public DateTime FinishedTime => m_finishedTime;
         
         public void Initialize()
         {
@@ -50,8 +54,6 @@ namespace _Scripts.CoreScene
             m_letSpawner.StartSpawnBarricade().Forget();
             
             m_playerMoveController.GoToCenterLine();
-
-            m_finishedTime = DateTime.Now.AddSeconds(m_levelModel.LevelDurationInSeconds);
         }
         
         public void FinishLevel()
@@ -67,7 +69,14 @@ namespace _Scripts.CoreScene
         {
             ShipState = ShipState.Mooring;
             
-            m_finalLevelWindowController.Show();
+            if (m_playerMoneyModel.Money + m_playerMoneyModel.MoneyOnBoard >= m_levelModel.WinMoney)
+            {
+                m_avitoWindowController.Show();
+            }
+            else
+            {
+                m_finalLevelWindowController.Show();
+            }
         }
     }
 }

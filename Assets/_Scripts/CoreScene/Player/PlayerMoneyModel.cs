@@ -4,7 +4,7 @@ namespace _Scripts.CoreScene.Player
 {
     public class PlayerMoneyModel
     {
-        private int m_money = 32;
+        private int m_money = 6;
         private int m_moneyOnBoard = 0;
 
         public int Money => m_money;

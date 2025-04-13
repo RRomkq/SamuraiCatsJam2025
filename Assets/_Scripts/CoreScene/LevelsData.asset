@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelSettingsMap:
   - {fileID: 11400000, guid: b332867820213b74b8419bf35c9cdda8, type: 2}
+  - {fileID: 11400000, guid: cab4d24112afcf5488beb87fb353806a, type: 2}
+  - {fileID: 11400000, guid: fe4a9df4c013cbd4abd28ac1ea312140, type: 2}

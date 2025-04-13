@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace _Scripts.CoreScene
         
         private IInstantiator m_instantiator;
         
+        private List<GameObject> m_stars = new List<GameObject>();
+        
         [Inject]
         public void Construct(IInstantiator instantiator)
         {
@@ -25,12 +28,22 @@ namespace _Scripts.CoreScene
             for (int i = 0; i < count; i++)
             {
                 GameObject star = m_instantiator.InstantiatePrefab(starPrefab, StarSpawnPosition.position, Quaternion.identity, transform);
+                m_stars.Add(star);
                 Sequence sequence = DOTween.Sequence();
                 sequence.Append(star.GetComponent<RectTransform>().DOAnchorPos(StarList[i].anchoredPosition, 1f));
                 sequence.Append(star.transform.DOShakeScale(0.5f, 1f, 0));
                 sequence.Play();
                 await UniTask.Delay(500);
             }
+        }
+
+        public void Clear()
+        {
+            foreach (var star in m_stars.ToList())
+            {
+                Destroy(star);
+            }
+            m_stars.Clear();
         }
     }
 }

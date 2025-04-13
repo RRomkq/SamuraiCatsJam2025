@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using _Scripts.CoreScene.Player;
 using Cysharp.Threading.Tasks;
 using TMPro;
@@ -18,6 +19,8 @@ namespace _Scripts.CoreScene
         private PassengerOnBoardModel m_passengerOnBoardModel;
         private PlayerMoneyModel m_playerMoneyModel;
         
+        private List<int> m_usedFeedback = new List<int>();
+        
         [Inject]
         public void Construct(FeedbackSO feedbackSO, PassengerOnBoardModel passengerOnBoardModel,
             PlayerMoneyModel playerMoneyModel)
@@ -35,7 +38,15 @@ namespace _Scripts.CoreScene
 
             for (int i = 0; i < FeedbackTexts.Count; i++)
             {
-                Feedback feedback = m_feedbackSO.feedbacks[Random.Range(0, m_feedbackSO.feedbacks.Count)];
+                List<Feedback> unusedFeedback = m_feedbackSO.feedbacks.Where((feedback, index) => !m_usedFeedback.Contains(index)).ToList();
+                if (unusedFeedback.Count == 0)
+                {
+                    m_usedFeedback.Clear();
+                    unusedFeedback = m_feedbackSO.feedbacks;
+                }
+                
+                Feedback feedback = unusedFeedback[Random.Range(0, unusedFeedback.Count)];
+                m_usedFeedback.Add(m_feedbackSO.feedbacks.IndexOf(feedback));
             
                 StartTextWrite(feedback.message, FeedbackTexts[i]).Forget();
                 StarControllers[i].CreateStars(feedback.starCount).Forget();
@@ -48,13 +59,14 @@ namespace _Scripts.CoreScene
             foreach (var c in text)
             {
                 feedbackText.text += c;
-                await UniTask.Delay(100);
+                await UniTask.Delay(50);
             }
         }
 
         public void Hide()
         {
             gameObject.SetActive(false);
+            StarControllers.ForEach(c => c.Clear());
         }
     }
 }

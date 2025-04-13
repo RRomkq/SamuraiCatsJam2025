@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 349d0fb922e84ac3a932cf0c8b689626, type: 3}
-  m_Name: Level1Settings
+  m_Name: Level3Settings 2
   m_EditorClassIdentifier: 
-  SpawnBaricadesDelay: 3
-  Speed: 15
-  BarricadesRawCount: 5
+  SpawnBaricadesDelay: 1
+  Speed: 40
+  BarricadesRawCount: 12
   GroundSpeedByLevel:
   - 2
   - 2.4

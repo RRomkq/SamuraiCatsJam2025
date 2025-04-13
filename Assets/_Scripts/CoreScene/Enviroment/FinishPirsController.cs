@@ -23,7 +23,7 @@ namespace _Scripts.CoreScene.Enviroment
         
         public void GoPirsToVisionPosition(Action action)
         {
-            transform.DOMove(VisionPosition.position, 2f).OnComplete(action.Invoke);
+            transform.DOMove(VisionPosition.position, 3f).OnComplete(action.Invoke);
         }
 
         public void ResetPirs()
