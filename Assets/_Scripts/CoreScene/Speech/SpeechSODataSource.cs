@@ -19,10 +19,24 @@ namespace _Scripts.CoreScene.Speech
             m_speechSo = mSpeechSo;
         }
 
-        public string GetRandomReplic(SpeechSituation actorSpeechSituation)
+        public string GetRandomGhostReplic(SpeechSituation actorSpeechSituation)
         {
             SpeechReplicsBySituation replicsBySituation =
                 m_speechSo.SpeechReplics.FirstOrDefault(s => s.SpeechSituation == actorSpeechSituation);
+
+            if (replicsBySituation == null)
+            {
+                return null;
+            }
+            
+            int random = new Random().Next(0, replicsBySituation.SpeechReplics.Count);
+            return replicsBySituation.SpeechReplics[random];
+        }
+
+        public string GetRandomHaronReplic(SpeechSituation actorSpeechSituation)
+        {
+            SpeechReplicsBySituation replicsBySituation =
+                m_speechSo.HaronSpeechReplics.FirstOrDefault(s => s.SpeechSituation == actorSpeechSituation);
 
             if (replicsBySituation == null)
             {

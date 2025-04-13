@@ -9,14 +9,33 @@ using UnityEngine;
 
 namespace _Scripts.CoreScene.Speech.UI
 {
-    public class SpeechBubbleManager
+    public class SpeechBubbleManager : MonoBehaviour
     {
+        [SerializeField] private SpeechBubbleController m_ghostBubbleSample;
+        [SerializeField] private SpeechBubbleController m_haronBubbleSample;
+        
         public void ShowSpeechBubble(SpeechActor actor, string replic)
         {
             Debug.LogWarning(replic);
-            
-            // m_bubble.SetText(replic);
-            // m_bubble.Show();
+
+            SpeechBubbleController bubble = GetBubbleByActor(actor);
+            if (bubble == null)
+            {
+                return;
+            }
+            bubble.SetText(replic);
+            bubble.Show(actor);
+        }
+
+        private SpeechBubbleController GetBubbleByActor(SpeechActor actor)
+        {
+            switch (actor.SpeechActorType)
+            {
+                case SpeechActorType.HARON: return m_haronBubbleSample;
+                case SpeechActorType.GHOST: return m_ghostBubbleSample;
+            }
+
+            return null;
         }
     }
 }

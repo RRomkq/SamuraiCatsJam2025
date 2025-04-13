@@ -23,7 +23,8 @@ namespace _Scripts.CoreScene
             ScreenFadeController screenFadeController,
             LevelStarter levelStarter,
             FinalLevelWindowController finalLevelWindowController,
-            PlayerMoneyController playerMoneyController)
+            PlayerMoneyController playerMoneyController
+            )
         {
             m_playerMoveController = playerMoveController;
             m_screenFadeController = screenFadeController;

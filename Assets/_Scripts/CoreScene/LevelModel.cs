@@ -46,5 +46,7 @@ namespace _Scripts.CoreScene
         public List<int> NeedMoneyForPassenger => m_globalGameSettings.NeedMoneyForPassenger;
         
         public int WinMoney => m_globalGameSettings.WinMoneyCount;
+        
+        public float HoronSpeed => m_levelSettings.HoronSpeed;
     }
 }

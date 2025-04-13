@@ -5,6 +5,7 @@
 // -------------------------------------------------------------------------
 
 using System;
+using _Scripts.CoreScene.Speech.Model;
 using TMPro;
 using UnityEngine;
 
@@ -12,17 +13,30 @@ namespace _Scripts.CoreScene.Speech.UI
 {
     public class SpeechBubbleController : MonoBehaviour
     {
+        private const int SHOW_TIME_IN_MS = 3000;
+        
         [SerializeField] private TMP_Text m_text;
         
         private DateTime m_showTime;
+
+        private SpeechActor m_currentActor;
+        
+        private RectTransform m_rectTransform;
+
+        private void Awake()
+        {
+            m_rectTransform = GetComponent<RectTransform>();
+        }
 
         public void SetText(string replic)
         {
             m_text.text = replic;
         }
 
-        public void Show()
+        public void Show(SpeechActor actor)
         {
+            m_currentActor = actor;
+            
             this.gameObject.SetActive(true);
 
             StartTimer();
@@ -40,6 +54,8 @@ namespace _Scripts.CoreScene.Speech.UI
                 return;
             }
 
+            UpdatePositionNearActor();
+            
             if (!ShowTimeExpired())
             {
                 return;
@@ -48,13 +64,17 @@ namespace _Scripts.CoreScene.Speech.UI
             Hide();
         }
 
+        private void UpdatePositionNearActor()
+        {
+            Vector2 pos = Camera.main.WorldToScreenPoint(m_currentActor.BubbleAnchor.transform.position);
+            m_rectTransform.position = pos;
+        }
+
         private bool ShowTimeExpired()
         {
             TimeSpan diff = DateTime.Now - m_showTime;
             return diff.TotalMilliseconds > SHOW_TIME_IN_MS;
         }
-
-        private const int SHOW_TIME_IN_MS = 3000;
 
         public void Hide()
         {

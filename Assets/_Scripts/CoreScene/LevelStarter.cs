@@ -58,7 +58,7 @@ namespace _Scripts.CoreScene
 
         public void StartLevel()
         {
-            m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[(int)m_levelModel.DifficultyLevel]);
+            m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[m_levelModel.NeedMoneyForPassenger.FindLastIndex(needMoney => needMoney < m_playerMoneyModel.Money)]);
             m_currentLevelIndex++;
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
