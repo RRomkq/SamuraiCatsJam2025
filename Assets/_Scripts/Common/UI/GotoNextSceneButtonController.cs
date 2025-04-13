@@ -15,8 +15,10 @@ namespace _Scripts.StartScene
     {
         [SerializeField] private Button m_gotoNextSceneButton;
         [SerializeField] private bool m_isActiveByDefault = false;
+        [SerializeField] private AudioSource ClickByButtonSound;
         
         private GameSceneManager m_gameSceneManager;
+        
 
         [Inject]
         public void Construct(GameSceneManager gameSceneManager)
@@ -41,6 +43,7 @@ namespace _Scripts.StartScene
 
         private void OnStartButtonClick()
         {
+            ClickByButtonSound.Play();
             GotoNextScene();
         }
 
