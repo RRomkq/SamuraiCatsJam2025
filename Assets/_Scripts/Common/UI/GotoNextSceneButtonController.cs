@@ -14,6 +14,7 @@ namespace _Scripts.StartScene
     public class GotoNextSceneButtonController : MonoBehaviour
     {
         [SerializeField] private Button m_gotoNextSceneButton;
+        [SerializeField] private bool m_isActiveByDefault = false;
         
         private GameSceneManager m_gameSceneManager;
 
@@ -25,7 +26,7 @@ namespace _Scripts.StartScene
 
         private void Awake()
         {
-            m_gotoNextSceneButton.gameObject.SetActive(false);
+            m_gotoNextSceneButton.gameObject.SetActive(m_isActiveByDefault);
         }
 
         private void OnEnable()
