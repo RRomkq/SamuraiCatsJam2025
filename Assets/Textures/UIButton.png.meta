@@ -115,7 +115,7 @@ TextureImporter:
         serializedVersion: 2
         x: 33
         y: 429
-        width: 955
+        width: 945
         height: 608
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -202,7 +202,7 @@ TextureImporter:
         width: 216
         height: 217
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -210,6 +210,27 @@ TextureImporter:
       bones: []
       spriteID: 7f9040d9fbd00034e8c65ee57d96b083
       internalID: -1210384779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIButton_5
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 871
+        width: 198
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cef0da5db5d8c744980ed0ac7b501d81
+      internalID: 1145137789
       vertices: []
       indices: 
       edges: []
@@ -230,6 +251,7 @@ TextureImporter:
       UIButton_2: -230471764
       UIButton_3: 493791271
       UIButton_4: -1210384779
+      UIButton_5: 1145137789
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

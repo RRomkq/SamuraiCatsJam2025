@@ -1,5 +1,6 @@
 using System;
 using _Scripts.CoreScene.Enviroment;
+using _Scripts.CoreScene.Player;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
@@ -16,11 +17,14 @@ namespace _Scripts.CoreScene
         private LevelsData m_levelsData;
         private GameManager m_gameManager;
         private PirsController m_pirsController;
-        private ClickerByCircle m_clickerByCircle;
         private FinishPirsController m_finishPirsController;
+        private PlayerMoneyController m_playerMoneyController;
+        private StartButtonController m_startButtonController;
+        private PlayerMoneyModel m_playerMoneyModel;
+        private PassengerOnBoardModel m_passengerOnBoardModel;
         
         private int m_currentLevelIndex = 0;
-        
+
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
             ScreenFadeController screenFadeController,
@@ -28,8 +32,11 @@ namespace _Scripts.CoreScene
             LevelsData levelsData,
             GameManager gameManager,
             PirsController pirsController,
-            ClickerByCircle clickerByCircle,
-            FinishPirsController finishPirsController)
+            FinishPirsController finishPirsController,
+            PlayerMoneyController playerMoneyController,
+            StartButtonController startButtonController,
+            PlayerMoneyModel playerMoneyModel,
+            PassengerOnBoardModel passengerOnBoardModel)
         {
             m_playerMoveController = playerMoveController;
             m_screenFadeController = screenFadeController;
@@ -37,8 +44,11 @@ namespace _Scripts.CoreScene
             m_levelsData = levelsData;
             m_gameManager = gameManager;
             m_pirsController = pirsController;
-            m_clickerByCircle = clickerByCircle;
             m_finishPirsController = finishPirsController;
+            m_playerMoneyController = playerMoneyController;
+            m_startButtonController = startButtonController;
+            m_playerMoneyModel = playerMoneyModel;
+            m_passengerOnBoardModel = passengerOnBoardModel;
         }
 
         public void Awake()
@@ -68,8 +78,21 @@ namespace _Scripts.CoreScene
         {
             await UniTask.DelayFrame(1);
             
-            m_playerMoveController.GoToFirstLine();
+            m_playerMoveController.GoToFirstLine(() => AnimateMoneyAndShowStartButton().Forget());
             m_screenFadeController.AlphaTo(0, 2);
+        }
+
+        public async UniTask AnimateMoneyAndShowStartButton()
+        {
+            int passengersCount =
+                m_levelModel.NeedMoneyForPassenger.FindIndex(needMoney => needMoney > m_playerMoneyModel.Money) - 1;
+
+            m_passengerOnBoardModel.MaxPassengersOnBoard = passengersCount;
+            m_passengerOnBoardModel.PassengersCount = passengersCount;
+            
+            await m_playerMoneyController
+                .AddMoneyOnBoard(passengersCount * 2);
+            m_startButtonController.Show();
         }
     }
 }

@@ -48,9 +48,11 @@ public class PlayerMoveController : MonoBehaviour
         m_currentLine = index;
     }
 
-    public void GoToFirstLine()
+    public void GoToFirstLine(Action onComplete)
     {
-        MoveTo(m_lineHandler.HaronLines.First(), 3);
+        transform.DOMove(m_lineHandler.HaronLines.First().position, 3)
+            .SetEase(Ease.Linear)
+            .OnComplete(onComplete.Invoke);
         m_currentLine = 0;
     }
 

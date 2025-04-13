@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
@@ -20,9 +21,9 @@ namespace _Scripts.CoreScene.Enviroment
             m_startPosition = transform.position;
         }
         
-        public void GoPirsToVisionPosition()
+        public void GoPirsToVisionPosition(Action action)
         {
-            transform.DOMove(VisionPosition.position, 3f);
+            transform.DOMove(VisionPosition.position, 2f).OnComplete(action.Invoke);
         }
 
         public void ResetPirs()

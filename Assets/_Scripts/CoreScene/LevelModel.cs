@@ -26,5 +26,9 @@ namespace _Scripts.CoreScene
         public List<float> GroundSpeedByLevels => m_levelSettings.GroundSpeedByLevel;
         
         public List<float> WaterSpeedByLevels => m_levelSettings.WaterSpeedByLevel;
+
+        public int BoardGrade { get; set; } = 1;
+        
+        public List<int> NeedMoneyForPassenger => m_levelSettings.NeedMoneyForPassenger;
     }
 }

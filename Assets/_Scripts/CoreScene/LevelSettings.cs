@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace _Scripts.CoreScene
 {
@@ -23,5 +24,9 @@ namespace _Scripts.CoreScene
         public List<float> GroundSpeedByLevel = new List<float>();
         
         public List<float> WaterSpeedByLevel = new List<float>();
+
+        [FormerlySerializedAs("PassengersCountByBoardGrade")] public List<int> NeedMoneyForPassenger;
+
+        public int WinMoneyCount;
     }
 }
