@@ -5,24 +5,22 @@
 // -------------------------------------------------------------------------
 
 using System;
-using System.Timers;
 using _Scripts.CoreScene.Speech.Model;
 using _Scripts.CoreScene.Speech.UI;
+using Cysharp.Threading.Tasks;
 using Zenject;
 
 namespace _Scripts.CoreScene.Speech
 {
     public class SpeechManager : IInitializable
     {
-        private const int MIN_INTERVAL = 3;
-        private const int MAX_INTERVAL = 10;
+        private const int MIN_INTERVAL = 3000;
+        private const int MAX_INTERVAL = 10000;
         
         private SpeechSODataSource m_speechSODataSource;
         private SpeechActorsManager m_actorsManager;
         private SpeechBubbleManager m_speechBubbleManager;
 
-        private Timer m_timer;
-        
         public SpeechManager(SpeechSODataSource mSpeechSoDataSource, 
             SpeechBubbleManager speechBubbleManager,
             SpeechActorsManager actorsManager)
@@ -37,28 +35,35 @@ namespace _Scripts.CoreScene.Speech
             StartTimer();
         }
 
-        private void StartTimer()
+        private async void StartTimer()
         {
-            double randomInterval = new Random().Next(MIN_INTERVAL, MAX_INTERVAL);
-            m_timer = new Timer(randomInterval);
-            m_timer.Elapsed += TimerElapsed;
-        }
-
-        private void TimerElapsed(object sender, ElapsedEventArgs e)
-        {
+            int randomInterval = new Random().Next(MIN_INTERVAL, MAX_INTERVAL);
+            await UniTask.Delay(randomInterval);
+            
             ShowRandomGhostReplic();
         }
 
         public void ShowRandomGhostReplic()
         {
             SpeechActor actor = m_actorsManager.GetRandomActor();
+            if (actor == null)
+            {
+                StartTimer();
+                
+                return;
+            }
+            
             string replic = m_speechSODataSource.GetRandomGhostReplic(actor.SpeechSituation);
             if (replic == null)
             {
+                StartTimer();
+                
                 return;
             }
 
             m_speechBubbleManager.ShowSpeechBubble(actor, replic);
+            
+            StartTimer();
         }
 
         public void ShowRandomHaronReplic()

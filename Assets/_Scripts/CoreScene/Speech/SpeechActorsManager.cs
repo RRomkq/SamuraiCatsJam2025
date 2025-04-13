@@ -15,9 +15,8 @@ namespace _Scripts.CoreScene.Speech
         private List<SpeechActor> m_actors = new List<SpeechActor>();
         private SpeechActor m_haronActor; 
 
-        public SpeechActorsManager(List<SpeechActor> actors, SpeechActor haronActor)
+        public SpeechActorsManager(SpeechActor haronActor)
         {
-            m_actors = actors;
             m_haronActor = haronActor;
         }
 
@@ -28,6 +27,11 @@ namespace _Scripts.CoreScene.Speech
 
         public SpeechActor GetRandomActor()
         {
+            if (m_actors.Count == 0)
+            {
+                return null;
+            }
+            
             int index = new Random().Next(0, m_actors.Count);
             return m_actors[index];
         }

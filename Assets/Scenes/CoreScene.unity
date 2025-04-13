@@ -4045,6 +4045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4999488792167452266}
   - component: {fileID: 5762611607383908355}
+  - component: {fileID: 5762611607383908356}
   m_Layer: 0
   m_Name: Scene
   m_TagString: Untagged
@@ -4362,6 +4363,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GroundMaterial: {fileID: 2100000, guid: e51e4bb0e0b9ef74a8e044ec0d08ad0c, type: 2}
   WaterMaterial: {fileID: 2100000, guid: 2512613dd6906ff40b99db201f07f2b8, type: 2}
+--- !u!114 &5762611607383908356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4252358915629726094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 383a3efadb134ad1a78a76027573933c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ghostContainerSample: {fileID: 6857080335633893212, guid: 027303051aa02244bbfb26e5ed8efe65,
+    type: 3}
 --- !u!1 &5818504157480385922
 GameObject:
   m_ObjectHideFlags: 0

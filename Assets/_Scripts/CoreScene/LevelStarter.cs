@@ -1,4 +1,3 @@
-using System;
 using _Scripts.CoreScene.Enviroment;
 using _Scripts.CoreScene.Player;
 using Cysharp.Threading.Tasks;
@@ -27,7 +26,8 @@ namespace _Scripts.CoreScene
         
         private int m_currentLevelIndex = 0;
 
-
+        private StartLevelGhostSpawner m_ghostSpawner;
+        
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
             ScreenFadeController screenFadeController,
@@ -40,7 +40,8 @@ namespace _Scripts.CoreScene
             StartButtonController startButtonController,
             PlayerMoneyModel playerMoneyModel,
             PassengerOnBoardModel passengerOnBoardModel,
-            CameraController cameraController
+            CameraController cameraController,
+            StartLevelGhostSpawner ghostSpawner
             )
         {
             m_playerMoveController = playerMoveController;
@@ -55,6 +56,7 @@ namespace _Scripts.CoreScene
             m_playerMoneyModel = playerMoneyModel;
             m_passengerOnBoardModel = passengerOnBoardModel;
             m_cameraController = cameraController;
+            m_ghostSpawner = ghostSpawner;
         }
 
         public void Awake()
@@ -82,6 +84,8 @@ namespace _Scripts.CoreScene
             m_cameraController.ResetCamera();
             
             await UniTask.DelayFrame(1);
+
+            m_ghostSpawner.SpawnGhosts(4);
             
             m_playerMoveController.GoToFirstLine(() => AnimateMoneyAndShowStartButton().Forget());
             m_screenFadeController.AlphaTo(0, 2);
