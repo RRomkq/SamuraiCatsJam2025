@@ -19,6 +19,8 @@ namespace _Scripts.CoreScene
         private PlayerMoveController m_playerMoveController;
         private GameManager m_gameManager;
         private CancellationTokenSource m_cts;
+
+        public AudioSource ClickAudio;
         
         [Inject]
         public void Construct(PlayerMoveController playerMoveController, GameManager gameManager)
@@ -58,6 +60,7 @@ namespace _Scripts.CoreScene
 
         private void OnClick()
         {
+            ClickAudio.Play();
             m_currentClick++;
             m_circle.fillAmount = (float) m_currentClick / m_needClickCount;
 

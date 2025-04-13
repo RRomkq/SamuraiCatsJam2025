@@ -116,8 +116,6 @@ namespace _Scripts.CoreScene
             m_passengerOnBoardModel.MaxPassengersOnBoard = passengersCount;
             m_passengerOnBoardModel.PassengersCount = passengersCount;
             
-            await m_playerMoneyController
-                .AddMoneyOnBoard(passengersCount * 2);
             m_startButtonController.Show();
         }
     }

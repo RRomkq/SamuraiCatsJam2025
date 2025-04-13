@@ -1,5 +1,6 @@
 using System;
 using _Scripts.CoreScene.Player;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using Zenject;
@@ -27,7 +28,17 @@ namespace _Scripts.CoreScene
 
         private void MoneyOnBoardChanged()
         {
-            MoneyCount.text = m_playerMoneyModel.MoneyOnBoard.ToString();
+            AddMoneyAsync().Forget();
+        }
+
+        private async UniTask AddMoneyAsync()
+        {
+            int count = m_playerMoneyModel.MoneyOnBoard;
+            for (int i = 0; i <= count; i++)
+            {
+                MoneyCount.text = i.ToString();
+                await UniTask.Delay(100);
+            }
         }
 
         private void Update()

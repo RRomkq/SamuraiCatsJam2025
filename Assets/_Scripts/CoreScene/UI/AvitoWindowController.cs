@@ -6,6 +6,7 @@ namespace _Scripts.CoreScene
     public class AvitoWindowController: MonoBehaviour
     {
         private GameSceneManager m_gameSceneManager;
+        public AudioSource Spawn;
         
         [Inject]
         public void Construct(GameSceneManager gameSceneManager)
@@ -20,6 +21,7 @@ namespace _Scripts.CoreScene
 
         public void Show()
         {
+            Spawn.Play();
             gameObject.SetActive(true);
         }
     }

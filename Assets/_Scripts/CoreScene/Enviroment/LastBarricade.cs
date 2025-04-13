@@ -14,6 +14,7 @@ namespace _Scripts.CoreScene.Enviroment
         private PassengerOnBoardModel m_passengerOnBoardModel;
         public bool IsReallyLastBarricade;
         private bool m_isDestroy = false;
+        public AudioSource AudioSource;
 
         public Sprite m_destroySprite;
         public SpriteRenderer m_image;
@@ -41,6 +42,7 @@ namespace _Scripts.CoreScene.Enviroment
                     m_isDestroy = true;
                     m_passengerOnBoardModel.PassengersCount -= 1;
                     m_playerMoneyController.DropMoneyFromBoard(2).Forget();
+                    AudioSource.Play();
 
                     m_image.sprite = m_destroySprite;
                     m_image.sortingOrder = 0;

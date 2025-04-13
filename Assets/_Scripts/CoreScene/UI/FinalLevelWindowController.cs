@@ -18,6 +18,9 @@ namespace _Scripts.CoreScene
         private FeedbackSO m_feedbackSO;
         private PassengerOnBoardModel m_passengerOnBoardModel;
         private PlayerMoneyModel m_playerMoneyModel;
+
+        public AudioSource TextWriteAudio;
+        public AudioSource Spawn;
         
         private List<int> m_usedFeedback = new List<int>();
         
@@ -32,6 +35,7 @@ namespace _Scripts.CoreScene
 
         public void Show()
         {
+            Spawn.Play();
             gameObject.SetActive(true);
             RemainingPassengersView?.SetText(m_passengerOnBoardModel.PassengersCount, m_passengerOnBoardModel.MaxPassengersOnBoard);
             SetRewardMoneyAsync().Forget();
@@ -66,6 +70,7 @@ namespace _Scripts.CoreScene
 
         public async UniTask StartTextWrite(string text, TextMeshProUGUI feedbackText)
         {
+            TextWriteAudio.Play();
             feedbackText.text = "";
             foreach (var c in text)
             {

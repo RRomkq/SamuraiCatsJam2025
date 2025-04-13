@@ -8,6 +8,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
+using Random = UnityEngine.Random;
 
 public class PlayerMoveController : MonoBehaviour
 {
@@ -15,6 +16,9 @@ public class PlayerMoveController : MonoBehaviour
     public List<GameObject> Boards;
     
     public HoronControls controls;
+    public List<AudioSource> m_audioSources;
+
+    private AudioSource m_audioS;
     public float ForceToLineDuration => m_levelModel.HoronSpeed;
 
     private int m_currentLine = 1;
@@ -51,6 +55,12 @@ public class PlayerMoveController : MonoBehaviour
         if (index < 0 || index >= m_lineHandler.HaronLines.Count - 1 || m_gameModel.ShipState != ShipState.Swimming)
         {
             return;
+        }
+
+        if (m_audioS == null || !m_audioS.isPlaying)
+        {
+            m_audioS = m_audioSources[Random.Range(0, m_audioSources.Count)];
+            m_audioS.Play();
         }
         
         MoveTo(m_lineHandler.HaronLines[index]);

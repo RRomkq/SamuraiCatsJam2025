@@ -19,6 +19,9 @@ namespace _Scripts.CoreScene.Player
         
         private IInstantiator m_instantiator;
         private PlayerMoneyModel m_playerMoneyModel;
+
+        public AudioSource Coins;
+        public AudioSource GetCoins;
         
         [Inject]
         public void Construct(IInstantiator instantiator, PlayerMoneyModel playerMoneyModel)
@@ -30,9 +33,10 @@ namespace _Scripts.CoreScene.Player
         public async UniTask AddMoneyOnBoard(int amount)
         {
             m_playerMoneyModel.AddMoneyOnBoard(amount);
+            GetCoins.Play();
             for (int i = 0; i < amount; i++)
             {
-                GameObject gameObject = m_instantiator.InstantiatePrefab(ImageMoneyPrefab, GetMoneyPosition.position, Quaternion.identity, GetMoneyPosition);
+                GameObject gameObject = m_instantiator.InstantiatePrefab(GetMoneyPrefab, GetMoneyPosition.position, Quaternion.identity, GetMoneyPosition);
                 SpriteRenderer spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
                 gameObject.transform.DOMove(DropMoneyPosition.position, 1f);
                 spriteRenderer.DOFade(0, 1f);
@@ -57,6 +61,7 @@ namespace _Scripts.CoreScene.Player
             for (int i = 0; i < amount; i++)
             {
                 LaunchMoney();
+                Coins.Play();
                 await UniTask.Delay(100);
             }
         }
@@ -94,6 +99,7 @@ namespace _Scripts.CoreScene.Player
 
         public async UniTask GetMoneyFromBoard()
         {
+            GetCoins.Play();
             for (int i = 0; i < m_playerMoneyModel.MoneyOnBoard; i++)
             {
                 GameObject gameObject = m_instantiator.InstantiatePrefab(ImageMoneyPrefab, GetMoneyRewardPosition.position, Quaternion.identity, GetMoneyRewardPosition);
