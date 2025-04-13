@@ -26,7 +26,7 @@ MonoBehaviour:
   - SpawnBaricadesDelay: 2
     Speed: 12
     BarricadesRawCount: 11
-    HoronSpeed: 2
+    HoronSpeed: 1
     ClickCountForClickerEvent: 15
   - SpawnBaricadesDelay: 1
     Speed: 13
