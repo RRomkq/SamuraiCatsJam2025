@@ -86,12 +86,19 @@ namespace _Scripts.CoreScene
             
             await UniTask.DelayFrame(1);
 
-            m_ghostsRepository.SpawnGhosts(4);
+            m_ghostsRepository.SpawnGhosts(GetLevelGhostsCount());
             
             m_playerMoveController.GoToFirstLine(() => AnimateMoneyAndShowStartButton().Forget());
             m_screenFadeController.AlphaTo(0, 2);
             
             m_cameraController.MoveToStartPoint();
+        }
+
+        private int GetLevelGhostsCount()
+        {
+            int passengersCount =
+                m_levelModel.NeedMoneyForPassenger.FindIndex(needMoney => needMoney > m_playerMoneyModel.Money) - 1;
+            return passengersCount;
         }
 
         public async UniTask AnimateMoneyAndShowStartButton()
