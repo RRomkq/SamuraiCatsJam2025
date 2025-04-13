@@ -48,7 +48,7 @@ namespace _Scripts.CoreScene
 
         public void MoveToFinishPoint()
         {
-            Vector2 cameraEndPos = new Vector2(12, -12);
+            Vector2 cameraEndPos = new Vector2(35, 12);
             
             Sequence parallelAnimations = DOTween.Sequence();
             
