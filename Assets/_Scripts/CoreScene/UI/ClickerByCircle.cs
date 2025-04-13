@@ -121,9 +121,13 @@ namespace _Scripts.CoreScene
             FinishClickEvent?.Invoke(result);
             m_playerMoveController.Click -= OnClick;
             Parent.SetActive(false);
-            m_cts.Cancel();
-            m_cts.Dispose();
-            m_cts = null;
+
+            if (m_cts != null)
+            {
+                m_cts.Cancel();
+                m_cts.Dispose();
+                m_cts = null;
+            }
         }
 
         public void Dispose()
