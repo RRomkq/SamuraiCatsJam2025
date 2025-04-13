@@ -11,6 +11,8 @@ namespace _Scripts.CoreScene
     {
         public List<RectTransform> StarList;
         public GameObject starPrefab;
+
+        public AudioSource StarSpawnAudio;
         
         private IInstantiator m_instantiator;
         
@@ -32,6 +34,7 @@ namespace _Scripts.CoreScene
                 Sequence sequence = DOTween.Sequence();
                 sequence.Append(star.transform.DOShakeScale(0.5f, 1f, 0));
                 sequence.Play();
+                StarSpawnAudio.Play();
                 await UniTask.Delay(500);
             }
         }

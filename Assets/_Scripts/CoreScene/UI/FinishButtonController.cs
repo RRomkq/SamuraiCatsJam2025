@@ -20,6 +20,8 @@ namespace _Scripts.CoreScene
         private PlayerMoneyController m_playerMoneyController;
 
         private Tween m_tween;
+
+        public AudioSource ClickAudio;
         
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
@@ -38,6 +40,7 @@ namespace _Scripts.CoreScene
 
         public void FinishLevel()
         {
+            ClickAudio.Play();
             m_finalLevelWindowController.Hide();
             m_playerMoneyController.GetMoneyFromBoard().Forget();
             m_tween = m_playerMoveController.MoveTo(screenOutTarget, DURATION * 2);

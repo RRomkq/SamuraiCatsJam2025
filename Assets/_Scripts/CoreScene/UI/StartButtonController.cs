@@ -6,6 +6,7 @@ namespace _Scripts.CoreScene
     public class StartButtonController: MonoBehaviour
     {
         private GameManager m_gameManager;
+        public AudioSource ClickAudio;
         
         [Inject]
         public void Construct(GameManager gameManager)
@@ -15,6 +16,7 @@ namespace _Scripts.CoreScene
         
         public void StartGame() 
         {
+            ClickAudio.Play();
             m_gameManager.StartSwimming();
             gameObject.SetActive(false);
         }
