@@ -27,6 +27,7 @@ namespace _Scripts.CoreScene
         
         private int m_currentLevelIndex = 0;
 
+
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
             ScreenFadeController screenFadeController,
@@ -64,7 +65,6 @@ namespace _Scripts.CoreScene
         public void StartLevel()
         {
             m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[m_levelModel.NeedMoneyForPassenger.FindLastIndex(needMoney => needMoney < m_playerMoneyModel.Money)]);
-            m_currentLevelIndex++;
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
             m_screenFadeController.AlphaTo(1, 0);

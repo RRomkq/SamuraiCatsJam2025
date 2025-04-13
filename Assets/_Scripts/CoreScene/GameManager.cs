@@ -59,10 +59,12 @@ namespace _Scripts.CoreScene
             m_playerMoveController.GoToCenterLine();
             
             m_cameraController.MoveToSwimMode();
+            LevelStarted?.Invoke();
         }
         
         public void FinishLevel()
         {
+            LevelFinished?.Invoke();
             m_playerMoveController.GoToLastLine();
             m_finishPirsController.GoPirsToVisionPosition(() =>
             {
@@ -85,5 +87,9 @@ namespace _Scripts.CoreScene
                 m_finalLevelWindowController.Show();
             }
         }
+
+        public event Action LevelFinished;
+
+        public event Action LevelStarted;
     }
 }

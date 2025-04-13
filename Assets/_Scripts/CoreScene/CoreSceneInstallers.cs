@@ -37,8 +37,8 @@ public class CoreSceneInstallers : MonoInstaller
         Container.Bind<PassengerOnBoardModel>().AsSingle();
         Container.Bind<AvitoWindowController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<GlobalGameSettings>().FromInstance(GlobalGameSettings).AsSingle();
-
         Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
+        Container.BindInterfacesAndSelfTo<ClickerEventController>().FromComponentsInHierarchy().AsSingle();
     }
 
     private void UseLevelControllers()
