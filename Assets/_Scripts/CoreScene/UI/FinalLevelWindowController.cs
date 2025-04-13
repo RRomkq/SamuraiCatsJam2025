@@ -33,7 +33,7 @@ namespace _Scripts.CoreScene
         public void Show()
         {
             gameObject.SetActive(true);
-            RemainingPassengersView.SetText(m_passengerOnBoardModel.PassengersCount, m_passengerOnBoardModel.MaxPassengersOnBoard);
+            RemainingPassengersView?.SetText(m_passengerOnBoardModel.PassengersCount, m_passengerOnBoardModel.MaxPassengersOnBoard);
             MoneyRewardText.text = m_playerMoneyModel.MoneyOnBoard.ToString();
 
             for (int i = 0; i < FeedbackTexts.Count; i++)

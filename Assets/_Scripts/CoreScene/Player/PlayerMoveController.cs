@@ -14,16 +14,18 @@ public class PlayerMoveController : MonoBehaviour
     private LineHandler m_lineHandler;
     
     public HoronControls controls;
-    public float ForceToLineDuration = 1;
+    public float ForceToLineDuration => m_levelModel.HoronSpeed;
 
     private int m_currentLine = 1;
+    private LevelModel m_levelModel;
 
     public event Action Click;
 
     [Inject]
-    public void Construct(LineHandler lineHandler)
+    public void Construct(LineHandler lineHandler, LevelModel levelModel)
     {
         m_lineHandler = lineHandler;
+        m_levelModel = levelModel;
     }
 
     private void Awake()
