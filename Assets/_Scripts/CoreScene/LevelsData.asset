@@ -35,24 +35,24 @@ MonoBehaviour:
     ClickCountForClickerEvent: 17
   - SpawnBaricadesDelay: 2
     Speed: 14
-    BarricadesRawCount: 20
+    BarricadesRawCount: 17
     HoronSpeed: 2
     ClickCountForClickerEvent: 17
   - SpawnBaricadesDelay: 1
     Speed: 15
-    BarricadesRawCount: 24
+    BarricadesRawCount: 25
     HoronSpeed: 1
-    ClickCountForClickerEvent: 20
+    ClickCountForClickerEvent: 17
   - SpawnBaricadesDelay: 1
     Speed: 18
     BarricadesRawCount: 35
     HoronSpeed: 1
-    ClickCountForClickerEvent: 20
+    ClickCountForClickerEvent: 17
   - SpawnBaricadesDelay: 1
     Speed: 20
     BarricadesRawCount: 38
     HoronSpeed: 1
-    ClickCountForClickerEvent: 25
+    ClickCountForClickerEvent: 20
   - SpawnBaricadesDelay: 1
     Speed: 20
     BarricadesRawCount: 40
@@ -60,11 +60,11 @@ MonoBehaviour:
     ClickCountForClickerEvent: 25
   - SpawnBaricadesDelay: 1
     Speed: 23
-    BarricadesRawCount: 40
+    BarricadesRawCount: 50
     HoronSpeed: 1
     ClickCountForClickerEvent: 30
   - SpawnBaricadesDelay: 1
     Speed: 20
-    BarricadesRawCount: 40
+    BarricadesRawCount: 55
     HoronSpeed: 1
     ClickCountForClickerEvent: 30
