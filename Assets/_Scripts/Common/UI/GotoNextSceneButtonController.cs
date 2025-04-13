@@ -43,7 +43,7 @@ namespace _Scripts.StartScene
 
         private void OnStartButtonClick()
         {
-            ClickByButtonSound.Play();
+            ClickByButtonSound?.Play();
             GotoNextScene();
         }
 
