@@ -47,6 +47,7 @@ namespace _Scripts.CoreScene
 
         private void OnFinishClickEnvent(bool result)
         {
+            Enemies.ForEach(e => e.SetActive(false));
             if (!result)
             {
                 m_playerMoneyController.DropMoneyFromBoard(2).Forget();
@@ -56,8 +57,6 @@ namespace _Scripts.CoreScene
                 return;
                 // TODO: drop passenger
             }
-            
-            Enemies.ForEach(e => e.SetActive(false));
 
             if (m_levelModel.BarricadesCount - m_letSpawner.CurrentBarricade * m_levelModel.SpawnBaricadesDelay > 8)
             {
