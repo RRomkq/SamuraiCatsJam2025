@@ -46,6 +46,7 @@ public class CoreSceneInstallers : MonoInstaller
         Container.BindInterfacesAndSelfTo<GhostStartTransferManager>().AsSingle();
         Container.Bind<GroundController>().FromComponentsInHierarchy().AsSingle();
         Container.Bind<GameModel>().AsSingle();
+        Container.Bind<BoardResController>().FromComponentsInHierarchy().AsSingle();
     }
 
     private void UseLevelControllers()

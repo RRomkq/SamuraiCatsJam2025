@@ -21,6 +21,7 @@ namespace _Scripts.CoreScene
         private StartButtonController m_startButtonController;
         private PlayerMoneyModel m_playerMoneyModel;
         private PassengerOnBoardModel m_passengerOnBoardModel;
+        private BoardResController m_boardResController;
 
         private CameraController m_cameraController;
         
@@ -41,6 +42,7 @@ namespace _Scripts.CoreScene
             PlayerMoneyModel playerMoneyModel,
             PassengerOnBoardModel passengerOnBoardModel,
             CameraController cameraController,
+            BoardResController boardResController,
             LevelGhostsRepository ghostsRepository
             )
         {
@@ -57,6 +59,7 @@ namespace _Scripts.CoreScene
             m_passengerOnBoardModel = passengerOnBoardModel;
             m_cameraController = cameraController;
             m_ghostsRepository = ghostsRepository;
+            m_boardResController = boardResController;
         }
 
         public void Awake()
@@ -90,6 +93,7 @@ namespace _Scripts.CoreScene
             
             m_playerMoveController.GoToFirstLine(() => AnimateMoneyAndShowStartButton().Forget());
             m_screenFadeController.AlphaTo(0, 2);
+            m_boardResController.Show();
             
             m_cameraController.MoveToStartPoint();
         }
