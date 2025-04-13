@@ -16,8 +16,8 @@ namespace _Scripts.CoreScene
         private LetSpawner m_letSpawner;
         private PlayerMoveController m_playerMoveController;
         private FinishPirsController m_finishPirsController;
-        // private PlayerMoneyController m_playerMoneyController;
-        // private FinalLevelWindowController m_finalLevelWindowController;
+        private PlayerMoneyController m_playerMoneyController;
+        private FinalLevelWindowController m_finalLevelWindowController;
         
         public ShipState ShipState { get; set; }
         public bool IsLastBarricadeComplete { get; set; } = false;
@@ -25,17 +25,17 @@ namespace _Scripts.CoreScene
         public GameManager(LevelModel levelModel,
             LetSpawner letSpawner,
             PlayerMoveController playerMoveController,
-            FinishPirsController finishPirsController//,
-            // PlayerMoneyController playerMoneyController,
-            //FinalLevelWindowController finalLevelWindowController
+            FinishPirsController finishPirsController,
+             PlayerMoneyController playerMoneyController,
+            FinalLevelWindowController finalLevelWindowController
             )
         {
             m_levelModel = levelModel;
             m_letSpawner = letSpawner;
             m_playerMoveController = playerMoveController;
             m_finishPirsController = finishPirsController;
-            // m_playerMoneyController = playerMoneyController;
-            // m_finalLevelWindowController = finalLevelWindowController;
+            m_playerMoneyController = playerMoneyController;
+            m_finalLevelWindowController = finalLevelWindowController;
         }
         
         public DateTime FinishedTime => m_finishedTime;
@@ -68,7 +68,7 @@ namespace _Scripts.CoreScene
         {
             ShipState = ShipState.Mooring;
             
-            // m_finalLevelWindowController.Show();
+            m_finalLevelWindowController.Show();
         }
     }
 }
