@@ -28,6 +28,8 @@ namespace _Scripts.CoreScene
             Container.BindInterfacesAndSelfTo<SpeechBubbleManager>().FromComponentsInHierarchy().AsSingle();
             
             Container.BindInterfacesAndSelfTo<SpeechActorsManager>().AsSingle();
+            
+            Container.BindInterfacesAndSelfTo<HelpImageController>().FromComponentsInHierarchy().AsSingle();
         }
     }
 }

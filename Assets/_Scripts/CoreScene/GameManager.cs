@@ -38,6 +38,7 @@ namespace _Scripts.CoreScene
         public bool IsLastBarricadeComplete { get; set; } = false;
 
         private GhostStartTransferManager m_ghostsTransferManager;
+        private HelpImageController m_helpImageController;
         
         public GameManager(LevelModel levelModel,
             LetSpawner letSpawner,
@@ -49,6 +50,7 @@ namespace _Scripts.CoreScene
             CameraController cameraController,
             GroundController groundController,
             GhostStartTransferManager ghostsTransferManager,
+            HelpImageController helpImageController,
             GameModel gameModel)
         {
             m_levelModel = levelModel;
@@ -62,6 +64,7 @@ namespace _Scripts.CoreScene
             m_groundController = groundController;
             m_ghostsTransferManager = ghostsTransferManager;
             m_gameModel = gameModel;
+            m_helpImageController = helpImageController;
         }
         
         public void Initialize()
@@ -73,6 +76,8 @@ namespace _Scripts.CoreScene
         {
             await m_ghostsTransferManager.TransferGhostsFromStartToBoat();
          
+            m_helpImageController.Show();
+            
             ShipState = ShipState.Swimming;
             
             m_groundController.StartGroundMove();
@@ -106,6 +111,8 @@ namespace _Scripts.CoreScene
             {
                 m_finalLevelWindowController.Show();
             }
+            
+            m_helpImageController.Hide();
             
             m_ghostsRepository.DisposeGhosts();
         }

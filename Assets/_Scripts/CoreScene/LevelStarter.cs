@@ -28,6 +28,7 @@ namespace _Scripts.CoreScene
         private int m_currentLevelIndex = 0;
 
         private LevelGhostsRepository m_ghostsRepository;
+        private HelpImageController m_helpImageController;
         
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
@@ -43,7 +44,8 @@ namespace _Scripts.CoreScene
             PassengerOnBoardModel passengerOnBoardModel,
             CameraController cameraController,
             BoardResController boardResController,
-            LevelGhostsRepository ghostsRepository
+            LevelGhostsRepository ghostsRepository,
+            HelpImageController helpImageController
             )
         {
             m_playerMoveController = playerMoveController;
@@ -60,6 +62,7 @@ namespace _Scripts.CoreScene
             m_cameraController = cameraController;
             m_ghostsRepository = ghostsRepository;
             m_boardResController = boardResController;
+            m_helpImageController = helpImageController;
         }
 
         public void Awake()
@@ -94,7 +97,7 @@ namespace _Scripts.CoreScene
             m_playerMoveController.GoToFirstLine(() => AnimateMoneyAndShowStartButton().Forget());
             m_screenFadeController.AlphaTo(0, 2);
             m_boardResController.Show();
-            
+
             m_cameraController.MoveToStartPoint();
         }
 
