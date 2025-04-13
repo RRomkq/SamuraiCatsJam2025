@@ -79,10 +79,14 @@ namespace _Scripts.CoreScene.Speech
             string replic = m_speechSODataSource.GetRandomHaronReplic(actor.SpeechSituation);
             if (replic == null)
             {
+                StartTimer();
+                
                 return;
             }
 
             m_speechBubbleManager.ShowSpeechBubble(actor, replic);
+            
+            StartTimer();
         }
     }
 }
