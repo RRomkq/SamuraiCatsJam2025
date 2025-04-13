@@ -40,7 +40,10 @@ public class CoreSceneInstallers : MonoInstaller
         Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
         Container.BindInterfacesAndSelfTo<ClickerEventController>().FromComponentsInHierarchy().AsSingle();
         Container.BindInterfacesAndSelfTo<StartPirsGhostsPositionHelper>().FromComponentsInHierarchy().AsSingle();
-        Container.BindInterfacesAndSelfTo<StartLevelGhostsRepository>().FromComponentsInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<FinisPirsPositionHelper>().FromComponentsInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<BoatGhostsPositionHelper>().FromComponentsInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<LevelGhostsRepository>().FromComponentsInHierarchy().AsSingle();
+        Container.BindInterfacesAndSelfTo<GhostStartTransferManager>().AsSingle();
         Container.Bind<GroundController>().FromComponentsInHierarchy().AsSingle();
         Container.Bind<GameModel>().AsSingle();
     }

@@ -24,7 +24,7 @@ namespace _Scripts.CoreScene
         private AvitoWindowController m_avitoWindowController;
         private CameraController m_cameraController;
 
-        private StartLevelGhostsRepository m_ghostsRepository;
+        private LevelGhostsRepository m_ghostsRepository;
 
         private GroundController m_groundController;
         private GameModel m_gameModel;
@@ -36,6 +36,8 @@ namespace _Scripts.CoreScene
         }
 
         public bool IsLastBarricadeComplete { get; set; } = false;
+
+        private GhostStartTransferManager m_ghostsTransferManager;
         
         public GameManager(LevelModel levelModel,
             LetSpawner letSpawner,
@@ -43,9 +45,10 @@ namespace _Scripts.CoreScene
             FinalLevelWindowController finalLevelWindowController,
             PlayerMoneyModel playerMoneyModel,
             AvitoWindowController avitoWindowController,
-            StartLevelGhostsRepository ghostsRepository,
+            LevelGhostsRepository ghostsRepository,
             CameraController cameraController,
             GroundController groundController,
+            GhostStartTransferManager ghostsTransferManager,
             GameModel gameModel)
         {
             m_levelModel = levelModel;
@@ -57,6 +60,7 @@ namespace _Scripts.CoreScene
             m_cameraController = cameraController;
             m_ghostsRepository = ghostsRepository;
             m_groundController = groundController;
+            m_ghostsTransferManager = ghostsTransferManager;
             m_gameModel = gameModel;
         }
         
@@ -65,9 +69,12 @@ namespace _Scripts.CoreScene
             ShipState = ShipState.Mooring;
         }
         
-        public void StartSwimming()
+        public async void StartSwimming()
         {
+            await m_ghostsTransferManager.TransferGhostsFromStartToBoat();
+         
             ShipState = ShipState.Swimming;
+            
             m_groundController.StartGroundMove();
             m_letSpawner.StartSpawnBarricade().Forget();
             

@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace _Scripts.CoreScene.Enviroment
 {
-    public class StartPirsSpawnPoint : MonoBehaviour
+    public class GhostSpawnPoint : MonoBehaviour
     {
         
     }

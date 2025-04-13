@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace _Scripts.CoreScene.Enviroment
 {
-    public class StartPirsGhostsPositionHelper : MonoBehaviour
+    public class FinisPirsPositionHelper : MonoBehaviour
     {
         private List<GhostSpawnPoint> m_points;
 

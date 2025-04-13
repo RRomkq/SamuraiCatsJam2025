@@ -12,22 +12,24 @@ using Zenject;
 
 namespace _Scripts.CoreScene.Enviroment
 {
-    public class StartLevelGhostsRepository : MonoBehaviour
+    public class LevelGhostsRepository : MonoBehaviour
     {
         [SerializeField] private GameObject m_ghostContainerSample;
         
-        private StartPirsGhostsPositionHelper m_positionHelper;
+        private StartPirsGhostsPositionHelper m_startPositionHelper;
         private SpeechActorsManager m_actorsManager;
 
         private List<GameObject> m_spawnedGhosts = new List<GameObject>();
-        
+
+        public List<GameObject> SpawnedGhosts => m_spawnedGhosts;
+
         [Inject]
         public void Construct(
             StartPirsGhostsPositionHelper mPositionHelper,
             SpeechActorsManager actorsManager
         )
         {
-            m_positionHelper = mPositionHelper;
+            m_startPositionHelper = mPositionHelper;
             m_actorsManager = actorsManager;
         }
 
@@ -39,12 +41,12 @@ namespace _Scripts.CoreScene.Enviroment
             }
             m_spawnedGhosts.Clear();
             m_actorsManager.Clear();
-            m_positionHelper.Reset();
+            m_startPositionHelper.Reset();
         }
         
         public void SpawnGhosts(int count)
         {
-            m_positionHelper.Init();
+            m_startPositionHelper.Init();
             
             for (int i = 0; i < count; i++)
             {
@@ -52,7 +54,7 @@ namespace _Scripts.CoreScene.Enviroment
                 var speechActor = ghost.GetComponent<SpeechActor>();
                 m_actorsManager.RegisterSpeechActor(speechActor);
                 speechActor.SpeechSituation = SpeechSituation.QUEUE;
-                m_positionHelper.Spawn(ghost);
+                m_startPositionHelper.Spawn(ghost);
                 
                 m_spawnedGhosts.Add(ghost);
             }

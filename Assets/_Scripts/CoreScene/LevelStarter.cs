@@ -26,7 +26,7 @@ namespace _Scripts.CoreScene
         
         private int m_currentLevelIndex = 0;
 
-        private StartLevelGhostsRepository _mGhostsRepository;
+        private LevelGhostsRepository m_ghostsRepository;
         
         [Inject]
         public void Construct(PlayerMoveController playerMoveController,
@@ -41,7 +41,7 @@ namespace _Scripts.CoreScene
             PlayerMoneyModel playerMoneyModel,
             PassengerOnBoardModel passengerOnBoardModel,
             CameraController cameraController,
-            StartLevelGhostsRepository ghostsRepository
+            LevelGhostsRepository ghostsRepository
             )
         {
             m_playerMoveController = playerMoveController;
@@ -56,7 +56,7 @@ namespace _Scripts.CoreScene
             m_playerMoneyModel = playerMoneyModel;
             m_passengerOnBoardModel = passengerOnBoardModel;
             m_cameraController = cameraController;
-            _mGhostsRepository = ghostsRepository;
+            m_ghostsRepository = ghostsRepository;
         }
 
         public void Awake()
@@ -86,7 +86,7 @@ namespace _Scripts.CoreScene
             
             await UniTask.DelayFrame(1);
 
-            _mGhostsRepository.SpawnGhosts(4);
+            m_ghostsRepository.SpawnGhosts(4);
             
             m_playerMoveController.GoToFirstLine(() => AnimateMoneyAndShowStartButton().Forget());
             m_screenFadeController.AlphaTo(0, 2);

@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace _Scripts.CoreScene.Enviroment
 {
-    public class StartPirsGhostsPositionHelper : MonoBehaviour
+    public class BoatGhostsPositionHelper : MonoBehaviour
     {
         private List<GhostSpawnPoint> m_points;
 
@@ -39,6 +39,7 @@ namespace _Scripts.CoreScene.Enviroment
         {
             GhostSpawnPoint point = GetFirstFreePoint();
             ghost.transform.position = point.transform.position;
+            ghost.transform.parent = point.transform;
             m_bisyPoints[point] = true;
         }
 
