@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bay2_Right
+      name: Bay2_0
       rect:
         serializedVersion: 2
-        x: 130
-        y: 282
-        width: 367
-        height: 230
+        x: 0
+        y: 352
+        width: 299
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 707384099521e684e912d4bef073fbfb
-      internalID: -863588293
+      spriteID: fcc50dab24b57094dbe50217121155a0
+      internalID: -754685807
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bay2_Left
+      name: Bay2_1
       rect:
         serializedVersion: 2
-        x: 15
-        y: 0
-        width: 369
-        height: 281
+        x: 332
+        y: 305
+        width: 151
+        height: 203
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +145,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5e86cf8401b7ff40ae224f79c1662f7
-      internalID: 165682234
+      spriteID: acaa6c7a2e989be42bb546ea2e97f664
+      internalID: 981008008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay2_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 304
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a414b04a21be044902ca4b9c4d5272
+      internalID: -398334243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay2_3
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 262
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 015659b44d7b8bf4fafac473d8e6672b
+      internalID: 125176274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bay2_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 26
+        width: 117
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5cb2cc50275b84fac06d1362fd65b9
+      internalID: 2129630044
       vertices: []
       indices: 
       edges: []
@@ -162,8 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bay2_Left: 165682234
-      Bay2_Right: -863588293
+      Bay2_0: -754685807
+      Bay2_1: 981008008
+      Bay2_2: -398334243
+      Bay2_3: 125176274
+      Bay2_4: 2129630044
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
