@@ -25,8 +25,6 @@ namespace _Scripts.CoreScene
         private CameraController m_cameraController;
 
         private StartLevelGhostsRepository m_ghostsRepository;
-        
-        public ShipState ShipState { get; set; }
 
         private GroundController m_groundController;
         private GameModel m_gameModel;
@@ -84,12 +82,12 @@ namespace _Scripts.CoreScene
             LevelFinished?.Invoke();
             m_playerMoveController.GoToLastLine(() =>
             {
-                FinishLevelAsync().Forget();
+                FinishLevelAsync();
             });
             m_cameraController.MoveToFinishPoint();
         }
 
-        public void FinishLevelAsync()
+        private void FinishLevelAsync()
         {
             ShipState = ShipState.Mooring;
             
