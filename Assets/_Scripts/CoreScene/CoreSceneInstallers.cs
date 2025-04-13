@@ -1,5 +1,6 @@
 using _Scripts.CoreScene;
 using _Scripts.CoreScene.Enviroment;
+using _Scripts.CoreScene.Player;
 using Zenject;
 
 public class CoreSceneInstallers : MonoInstaller
@@ -7,13 +8,14 @@ public class CoreSceneInstallers : MonoInstaller
     public LetSpawner LetSpawner;
 
     public LevelsData LevelsData;
+    public FeedbackSO FeedbackSO;
     
     public override void InstallBindings()
     {
-        //Container.Bind<GroundModel>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelsData>().FromInstance(LevelsData).AsSingle();
-        //Container.Bind<LetSpawner>().FromInstance(LetSpawner).AsSingle();
         Container.Bind<PlayerMoveController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PlayerMoneyController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PlayerMoneyModel>().AsSingle();
         Container.BindInterfacesAndSelfTo<GameManager>().AsSingle();
         Container.Bind<ScreenFadeController>().FromComponentInHierarchy().AsSingle();
         
@@ -29,10 +31,14 @@ public class CoreSceneInstallers : MonoInstaller
         Container.Bind<PirsController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<FinishPirsController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<ClickerByCircle>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<FeedbackSO>().FromInstance(FeedbackSO).AsSingle();
+        Container.Bind<FinalLevelWindowController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PassengerOnBoardModel>().AsSingle();
     }
 
     private void UseLevelControllers()
     {
+        Container.Bind<StartButtonController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<LevelModel>().AsSingle();
         Container.Bind<LevelStarter>().FromComponentInHierarchy().AsSingle();
     }

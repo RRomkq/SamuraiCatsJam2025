@@ -1,4 +1,6 @@
 using System;
+using _Scripts.CoreScene.Player;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -7,19 +9,35 @@ namespace _Scripts.CoreScene.Enviroment
     public class LastBarricade: MonoBehaviour
     {
         private GameManager m_gameManager;
+        private PlayerMoneyController m_playerMoneyController;
+        private PassengerOnBoardModel m_passengerOnBoardModel;
+        public bool IsReallyLastBarricade;
+        private bool m_isDestroy = false;
         
         [Inject]
-        public void Construct(GameManager gameManager)
+        public void Construct(GameManager gameManager, PlayerMoneyController playerMoneyController, PassengerOnBoardModel passengerOnBoardModel)
         {
             m_gameManager = gameManager;
+            m_playerMoneyController = playerMoneyController;
+            m_passengerOnBoardModel = passengerOnBoardModel;
         }
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player") && !m_gameManager.IsLastBarricadeComplete)
+            if (other.CompareTag("Player"))
             {
-                m_gameManager.IsLastBarricadeComplete = true;
-                m_gameManager.FinishLevel();
+                if (!m_gameManager.IsLastBarricadeComplete && IsReallyLastBarricade)
+                {
+                    m_gameManager.IsLastBarricadeComplete = true;
+                    m_gameManager.FinishLevel();
+                }
+                else if (!IsReallyLastBarricade && !m_isDestroy)
+                {
+                    m_isDestroy = true;
+                    m_passengerOnBoardModel.PassengersCount -= 1;
+                    m_playerMoneyController.DropMoneyFromBoard(2).Forget();
+                    Destroy(gameObject);
+                }
             }
         }
     }

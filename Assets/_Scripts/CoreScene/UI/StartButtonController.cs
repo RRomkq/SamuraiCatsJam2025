@@ -13,6 +13,12 @@ namespace _Scripts.CoreScene
             m_gameManager = gameManager;
         }
         
-        public void StartGame() => m_gameManager.StartSwimming();
+        public void StartGame() 
+        {
+            m_gameManager.StartSwimming();
+            gameObject.SetActive(false);
+        }
+        
+        public void Show() => gameObject.SetActive(true);
     }
 }
