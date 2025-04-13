@@ -88,13 +88,12 @@ namespace _Scripts.CoreScene.Player
 
         public async UniTask GetMoneyFromBoard()
         {
-            Vector3 screenPos = Camera.main.WorldToScreenPoint(GetMoneyPosition.position);
             for (int i = 0; i < m_playerMoneyModel.MoneyOnBoard; i++)
             {
-                GameObject gameObject = m_instantiator.InstantiatePrefab(ImageMoneyPrefab, GetMoneyRewardPosition.anchoredPosition, Quaternion.identity, PlayerMoneyPosition);
+                GameObject gameObject = m_instantiator.InstantiatePrefab(ImageMoneyPrefab, GetMoneyRewardPosition.position, Quaternion.identity, GetMoneyRewardPosition);
                 Image spriteRenderer = gameObject.GetComponent<Image>();
                 RectTransform rect = gameObject.GetComponent<RectTransform>();
-                rect.DOAnchorPos(PlayerMoneyPosition.anchoredPosition, 0.5f);
+                gameObject.transform.DOMove(PlayerMoneyPosition.position, 0.5f);
                 spriteRenderer.DOFade(0.5f, 0.5f).OnComplete(() =>
                 {
                     Destroy(gameObject);

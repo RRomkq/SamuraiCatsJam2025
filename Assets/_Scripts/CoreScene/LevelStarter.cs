@@ -58,12 +58,7 @@ namespace _Scripts.CoreScene
 
         public void StartLevel()
         {
-            if (m_currentLevelIndex == m_levelsData.LevelSettingsMap.Count)
-            {
-                m_currentLevelIndex--;
-            }
-            
-            m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[m_currentLevelIndex]);
+            m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[m_levelModel.NeedMoneyForPassenger.FindLastIndex(needMoney => needMoney < m_playerMoneyModel.Money)]);
             m_currentLevelIndex++;
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);

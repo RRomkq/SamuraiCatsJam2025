@@ -1,34 +1,52 @@
 using System.Collections.Generic;
 using _Scripts.CoreScene.Enviroment;
+using _Scripts.CoreScene.Player;
+using Zenject;
 
 namespace _Scripts.CoreScene
 {
     public class LevelModel
     {
         private LevelSettings m_levelSettings;
+        private GlobalGameSettings m_globalGameSettings;
+        private PlayerMoneyModel m_playerMoneyModel;
 
-        public void SetLevelSettings(LevelSettings levelSettings) => m_levelSettings = levelSettings;
+        [Inject]
+        public void Construct(GlobalGameSettings globalGameSettings, PlayerMoneyModel playerMoneyModel)
+        {
+            m_globalGameSettings = globalGameSettings;
+            m_playerMoneyModel = playerMoneyModel;
+        }
         
-        public int LevelDurationInSeconds => m_levelSettings.LevelDurationInSeconds;
-
+        public void SetLevelSettings(LevelSettings levelSettings)
+        {
+            m_levelSettings = levelSettings;
+        }
+        
         public int SpawnBaricadesDelay => m_levelSettings.SpawnBaricadesDelay;
         
-        public float MaxSlowdownFactor => m_levelSettings.MaxSlowdownFactor;
-
         public float Speed => m_levelSettings.Speed;
-        
-        public int PassengersCount => m_levelSettings.PassengersCount;
 
-        public DifficultyLevel DifficultyLevel { get; set; } = DifficultyLevel.Medium;
-        
+        public DifficultyLevel DifficultyLevel
+        {
+            get
+            {
+                var findLast = m_globalGameSettings.MinMoneyNeedForDifficultyLevel.FindLastIndex(need => need <= m_playerMoneyModel.Money);
+
+                return (DifficultyLevel) findLast;
+            }
+        }
+
         public int BarricadesCount => m_levelSettings.BarricadesRawCount;
         
-        public List<float> GroundSpeedByLevels => m_levelSettings.GroundSpeedByLevel;
+        public List<float> GroundSpeedByLevels => m_globalGameSettings.GroundSpeedByLevel;
         
-        public List<float> WaterSpeedByLevels => m_levelSettings.WaterSpeedByLevel;
+        public List<float> WaterSpeedByLevels => m_globalGameSettings.WaterSpeedByLevel;
 
-        public int BoardGrade { get; set; } = 1;
+        public List<int> NeedMoneyForPassenger => m_globalGameSettings.NeedMoneyForPassenger;
         
-        public List<int> NeedMoneyForPassenger => m_levelSettings.NeedMoneyForPassenger;
+        public int WinMoney => m_globalGameSettings.WinMoneyCount;
+        
+        public float HoronSpeed => m_levelSettings.HoronSpeed;
     }
 }

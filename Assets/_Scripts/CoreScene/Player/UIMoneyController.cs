@@ -25,7 +25,7 @@ namespace _Scripts.CoreScene.Player
 
         private void UpdateMoneyText()
         {
-            MoneyText.text = m_playerMoneyModel.Money.ToString();
+            MoneyText.text = "Собрано на яхту: " + m_playerMoneyModel.Money.ToString();
         }
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9faca2e6c5946ce8cf737a8b1aa5fd8, type: 3}
+  m_Name: GlobalGameSettings
+  m_EditorClassIdentifier: 
+  NeedMoneyForPassenger: 000000000000000002000000060000000c000000140000001e0000002d000000500000007800000096000000c8000000
+  MinMoneyNeedForDifficultyLevel: 000000000c00000050000000
+  WinMoneyCount: 200
+  GroundSpeedByLevel:
+  - 2
+  - 2.4
+  - 2.8
+  WaterSpeedByLevel:
+  - 1
+  - 1.2
+  - 1.4

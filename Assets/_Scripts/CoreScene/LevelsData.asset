@@ -13,4 +13,53 @@ MonoBehaviour:
   m_Name: LevelsData
   m_EditorClassIdentifier: 
   LevelSettingsMap:
-  - {fileID: 11400000, guid: b332867820213b74b8419bf35c9cdda8, type: 2}
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1
+  - SpawnBaricadesDelay: 3
+    Speed: 10
+    BarricadesRawCount: 3
+    HoronSpeed: 1
+    ClickCountForClickerEvent: 1

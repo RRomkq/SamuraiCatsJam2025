@@ -9,6 +9,7 @@ public class CoreSceneInstallers : MonoInstaller
 
     public LevelsData LevelsData;
     public FeedbackSO FeedbackSO;
+    public GlobalGameSettings GlobalGameSettings;
     
     public override void InstallBindings()
     {
@@ -34,6 +35,8 @@ public class CoreSceneInstallers : MonoInstaller
         Container.Bind<FeedbackSO>().FromInstance(FeedbackSO).AsSingle();
         Container.Bind<FinalLevelWindowController>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PassengerOnBoardModel>().AsSingle();
+        Container.Bind<AvitoWindowController>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<GlobalGameSettings>().FromInstance(GlobalGameSettings).AsSingle();
     }
 
     private void UseLevelControllers()
