@@ -14,8 +14,8 @@ namespace _Scripts.CoreScene.Speech
 {
     public class SpeechManager : IInitializable
     {
-        private const int MIN_INTERVAL = 3000;
-        private const int MAX_INTERVAL = 10000;
+        private const int MIN_INTERVAL = 5000;
+        private const int MAX_INTERVAL = 15000;
         
         private SpeechSODataSource m_speechSODataSource;
         private SpeechActorsManager m_actorsManager;
@@ -39,8 +39,15 @@ namespace _Scripts.CoreScene.Speech
         {
             int randomInterval = new Random().Next(MIN_INTERVAL, MAX_INTERVAL);
             await UniTask.Delay(randomInterval);
-            
-            ShowRandomGhostReplic();
+
+            if (new Random().Next(0, 10) > 8)
+            {
+                ShowRandomHaronReplic();
+            }
+            else
+            {
+                ShowRandomGhostReplic();
+            }
         }
 
         public void ShowRandomGhostReplic()
