@@ -56,9 +56,10 @@ namespace _Scripts.CoreScene
         public async UniTask SetRewardMoneyAsync()
         {
             int monye = m_playerMoneyModel.MoneyOnBoard;
+            MoneyRewardText.text = "0";
             for (int i = 0; i < monye; i++)
             {
-                MoneyRewardText.text = monye.ToString();
+                MoneyRewardText.text = i.ToString();
                 await UniTask.Delay(100);
             }
         }

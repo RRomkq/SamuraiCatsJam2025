@@ -32,8 +32,8 @@ namespace _Scripts.CoreScene.Enviroment
         
         private async UniTask StartWithDelay(Action action)
         {
-            await UniTask.Delay(2000);
             m_groundController.StopGroundMove();
+            await UniTask.Delay(2000);
             action.Invoke();
         }
 
