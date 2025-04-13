@@ -22,6 +22,8 @@ namespace _Scripts.CoreScene
         private StartButtonController m_startButtonController;
         private PlayerMoneyModel m_playerMoneyModel;
         private PassengerOnBoardModel m_passengerOnBoardModel;
+
+        private CameraController m_cameraController;
         
         private int m_currentLevelIndex = 0;
 
@@ -36,7 +38,9 @@ namespace _Scripts.CoreScene
             PlayerMoneyController playerMoneyController,
             StartButtonController startButtonController,
             PlayerMoneyModel playerMoneyModel,
-            PassengerOnBoardModel passengerOnBoardModel)
+            PassengerOnBoardModel passengerOnBoardModel,
+            CameraController cameraController
+            )
         {
             m_playerMoveController = playerMoveController;
             m_screenFadeController = screenFadeController;
@@ -49,6 +53,7 @@ namespace _Scripts.CoreScene
             m_startButtonController = startButtonController;
             m_playerMoneyModel = playerMoneyModel;
             m_passengerOnBoardModel = passengerOnBoardModel;
+            m_cameraController = cameraController;
         }
 
         public void Awake()
@@ -63,18 +68,25 @@ namespace _Scripts.CoreScene
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
             m_screenFadeController.AlphaTo(1, 0);
+            
             m_gameManager.IsLastBarricadeComplete = false;
+            
             m_pirsController.ResetPirs();
             m_finishPirsController.ResetPirs();
+            
             StartLevelAsync().Forget();
         }
 
         private async UniTask StartLevelAsync()
         {
+            m_cameraController.ResetCamera();
+            
             await UniTask.DelayFrame(1);
             
             m_playerMoveController.GoToFirstLine(() => AnimateMoneyAndShowStartButton().Forget());
             m_screenFadeController.AlphaTo(0, 2);
+            
+            m_cameraController.MoveToStartPoint();
         }
 
         public async UniTask AnimateMoneyAndShowStartButton()

@@ -20,6 +20,7 @@ namespace _Scripts.CoreScene
         private FinalLevelWindowController m_finalLevelWindowController;
         private PlayerMoneyModel m_playerMoneyModel;
         private AvitoWindowController m_avitoWindowController;
+        private CameraController m_cameraController;
         
         public ShipState ShipState { get; set; }
         public bool IsLastBarricadeComplete { get; set; } = false;
@@ -31,7 +32,8 @@ namespace _Scripts.CoreScene
             PlayerMoneyController playerMoneyController,
             FinalLevelWindowController finalLevelWindowController,
             PlayerMoneyModel playerMoneyModel,
-            AvitoWindowController avitoWindowController)
+            AvitoWindowController avitoWindowController,
+            CameraController cameraController)
         {
             m_levelModel = levelModel;
             m_letSpawner = letSpawner;
@@ -41,6 +43,7 @@ namespace _Scripts.CoreScene
             m_finalLevelWindowController = finalLevelWindowController;
             m_playerMoneyModel = playerMoneyModel;
             m_avitoWindowController = avitoWindowController;
+            m_cameraController = cameraController;
         }
         
         public void Initialize()
@@ -54,6 +57,8 @@ namespace _Scripts.CoreScene
             m_letSpawner.StartSpawnBarricade().Forget();
             
             m_playerMoveController.GoToCenterLine();
+            
+            m_cameraController.MoveToSwimMode();
         }
         
         public void FinishLevel()
@@ -63,6 +68,8 @@ namespace _Scripts.CoreScene
             {
                FinishLevelAsync().Forget();
             });
+            
+            m_cameraController.MoveToFinishPoint();
         }
 
         public async UniTask FinishLevelAsync()

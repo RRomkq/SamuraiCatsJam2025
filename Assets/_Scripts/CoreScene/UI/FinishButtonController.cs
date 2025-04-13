@@ -38,7 +38,7 @@ namespace _Scripts.CoreScene
             m_finalLevelWindowController.Hide();
             m_playerMoneyController.GetMoneyFromBoard().Forget();
             m_playerMoveController.MoveTo(screenOutTarget, DURATION * 2);
-            m_screenFadeController.AlphaToAndDoAction(1, DURATION * 2, ResetPlayer);
+            m_screenFadeController.AlphaToAndDoAction(1, DURATION, ResetPlayer);
         }
 
         private void ResetPlayer()
