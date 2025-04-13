@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028356, g: 0.2257137, b: 0.3069222, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5340,6 +5340,11 @@ PrefabInstance:
       propertyPath: AdAudioSource
       value: 
       objectReference: {fileID: 1004075824}
+    - target: {fileID: 2576049326700790741, guid: 1be45045fc681254ebe4079a70e5bed6,
+        type: 3}
+      propertyPath: Enemies.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4948840003175948161, guid: 1be45045fc681254ebe4079a70e5bed6,
         type: 3}
       propertyPath: Coins
