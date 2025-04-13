@@ -13,8 +13,13 @@ namespace _Scripts.CoreScene.Speech.Model
         [SerializeField] 
         private GameObject m_bubbleAnchor;
 
+        [SerializeField] 
+        private SpeechActorType m_speechActorType;
+
         public GameObject BubbleAnchor => m_bubbleAnchor;
 
+        public SpeechActorType SpeechActorType => m_speechActorType;
+        
         public SpeechSituation SpeechSituation { get; set; } = SpeechSituation.QUEUE;
     }
 }

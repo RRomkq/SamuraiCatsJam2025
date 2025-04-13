@@ -22,6 +22,8 @@ namespace _Scripts.CoreScene.Speech.Model
         private List<SpeechReplicsBySituation> m_haronSpeechReplics;
         
         public List<SpeechReplicsBySituation> SpeechReplics => m_speechReplics;
+        
+        public List<SpeechReplicsBySituation> HaronSpeechReplics => m_haronSpeechReplics;
     }
 
     [Serializable]

@@ -13,10 +13,12 @@ namespace _Scripts.CoreScene.Speech
     public class SpeechActorsManager
     {
         private List<SpeechActor> m_actors = new List<SpeechActor>();
+        private SpeechActor m_haronActor; 
 
-        public SpeechActorsManager(List<SpeechActor> actors)
+        public SpeechActorsManager(List<SpeechActor> actors, SpeechActor haronActor)
         {
             m_actors = actors;
+            m_haronActor = haronActor;
         }
 
         public void RegisterSpeechActor(SpeechActor actor)
@@ -33,6 +35,11 @@ namespace _Scripts.CoreScene.Speech
         public void Clear()
         {
             m_actors = new List<SpeechActor>();
+        }
+
+        public SpeechActor GetHaronActor()
+        {
+            return m_haronActor;
         }
     }
 }

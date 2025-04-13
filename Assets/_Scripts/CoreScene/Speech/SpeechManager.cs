@@ -46,12 +46,30 @@ namespace _Scripts.CoreScene.Speech
 
         private void TimerElapsed(object sender, ElapsedEventArgs e)
         {
+            ShowRandomGhostReplic();
+        }
+
+        public void ShowRandomGhostReplic()
+        {
             SpeechActor actor = m_actorsManager.GetRandomActor();
-            string replic = m_speechSODataSource.GetRandomReplic(actor.SpeechSituation);
+            string replic = m_speechSODataSource.GetRandomGhostReplic(actor.SpeechSituation);
             if (replic == null)
             {
                 return;
             }
+
+            m_speechBubbleManager.ShowSpeechBubble(actor, replic);
+        }
+
+        public void ShowRandomHaronReplic()
+        {
+            SpeechActor actor = m_actorsManager.GetHaronActor();
+            string replic = m_speechSODataSource.GetRandomHaronReplic(actor.SpeechSituation);
+            if (replic == null)
+            {
+                return;
+            }
+
             m_speechBubbleManager.ShowSpeechBubble(actor, replic);
         }
     }

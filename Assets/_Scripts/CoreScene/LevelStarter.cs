@@ -18,7 +18,7 @@ namespace _Scripts.CoreScene
         private GameManager m_gameManager;
         private PirsController m_pirsController;
         private FinishPirsController m_finishPirsController;
-        private PlayerMoneyController m_playerMoneyController;
+        // private PlayerMoneyController m_playerMoneyController;
         private StartButtonController m_startButtonController;
         private PlayerMoneyModel m_playerMoneyModel;
         private PassengerOnBoardModel m_passengerOnBoardModel;
@@ -33,7 +33,7 @@ namespace _Scripts.CoreScene
             GameManager gameManager,
             PirsController pirsController,
             FinishPirsController finishPirsController,
-            PlayerMoneyController playerMoneyController,
+            // PlayerMoneyController playerMoneyController,
             StartButtonController startButtonController,
             PlayerMoneyModel playerMoneyModel,
             PassengerOnBoardModel passengerOnBoardModel)
@@ -45,7 +45,7 @@ namespace _Scripts.CoreScene
             m_gameManager = gameManager;
             m_pirsController = pirsController;
             m_finishPirsController = finishPirsController;
-            m_playerMoneyController = playerMoneyController;
+            // m_playerMoneyController = playerMoneyController;
             m_startButtonController = startButtonController;
             m_playerMoneyModel = playerMoneyModel;
             m_passengerOnBoardModel = passengerOnBoardModel;
@@ -90,8 +90,8 @@ namespace _Scripts.CoreScene
             m_passengerOnBoardModel.MaxPassengersOnBoard = passengersCount;
             m_passengerOnBoardModel.PassengersCount = passengersCount;
             
-            await m_playerMoneyController
-                .AddMoneyOnBoard(passengersCount * 2);
+            // await m_playerMoneyController
+            //     .AddMoneyOnBoard(passengersCount * 2);
             m_startButtonController.Show();
         }
     }

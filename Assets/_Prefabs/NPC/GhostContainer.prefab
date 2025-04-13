@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bubbleAnchor: {fileID: 4018064188620088509}
+  m_speechActorType: 1
 --- !u!1001 &4711575189114906586
 PrefabInstance:
   m_ObjectHideFlags: 0
