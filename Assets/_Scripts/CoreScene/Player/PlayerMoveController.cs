@@ -46,7 +46,7 @@ public class PlayerMoveController : MonoBehaviour
     {
         int index = m_currentLine + i;
 
-        if (index < 0 || index >= m_lineHandler.HaronLines.Count || m_gameModel.ShipState != ShipState.Swimming)
+        if (index < 0 || index >= m_lineHandler.HaronLines.Count - 1 || m_gameModel.ShipState != ShipState.Swimming)
         {
             return;
         }

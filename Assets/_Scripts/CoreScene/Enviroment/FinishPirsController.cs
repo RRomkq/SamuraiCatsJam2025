@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
 using Zenject;
@@ -26,11 +27,14 @@ namespace _Scripts.CoreScene.Enviroment
         
         public void GoPirsToVisionPosition(Action action, float duration)
         {
-            transform.DOMove(VisionPosition.position, duration).SetEase(Ease.Linear).OnComplete(() =>
-            {
-                m_groundController.StopGroundMove();
-                action.Invoke();
-            });
+            StartWithDelay(action).Forget();
+        }
+        
+        private async UniTask StartWithDelay(Action action)
+        {
+            await UniTask.Delay(2000);
+            m_groundController.StopGroundMove();
+            action.Invoke();
         }
 
         public void ResetPirs()
