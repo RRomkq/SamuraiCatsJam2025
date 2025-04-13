@@ -12,6 +12,7 @@ using Zenject;
 public class PlayerMoveController : MonoBehaviour
 {
     private LineHandler m_lineHandler;
+    public List<GameObject> Boards;
     
     public HoronControls controls;
     public float ForceToLineDuration => m_levelModel.HoronSpeed;
@@ -93,6 +94,17 @@ public class PlayerMoveController : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable(); // Отключаем обработку ввода
+    }
+
+    public void SetBoard(int id)
+    {
+        if (Boards[id].activeSelf)
+        {
+            return;
+        }
+        
+        Boards.ForEach(b => b.SetActive(false));
+        Boards[id].SetActive(true);
     }
 
   

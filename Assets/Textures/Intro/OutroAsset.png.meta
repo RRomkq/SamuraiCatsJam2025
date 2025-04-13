@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb037212b33c3474fb30e5621f5a0186
+guid: e752885edb678c74f9bd7d874f64abc3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,85 +110,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stone_0
+      name: Haron
       rect:
         serializedVersion: 2
-        x: 13
-        y: 21
-        width: 109
-        height: 105
-      alignment: 9
-      pivot: {x: 0.5122085, y: 0.17980906}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1ff97d226d820b143bf1721695e5c2cc
-      internalID: -1095860491
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stone_1
-      rect:
-        serializedVersion: 2
-        x: 9
-        y: 127
-        width: 121
-        height: 116
-      alignment: 9
-      pivot: {x: 0.46995825, y: 0.20420456}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 13d066bb7e861e14d9194b9f5bff8553
-      internalID: -1127219786
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stone_2
-      rect:
-        serializedVersion: 2
-        x: 132
-        y: 131
-        width: 110
-        height: 104
-      alignment: 9
-      pivot: {x: 0.49741182, y: 0.26045293}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bfb0652e33acd2419f2acf880a6c32c
-      internalID: -938349790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Stone_3
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 1
-        width: 124
-        height: 122
+        x: 0
+        y: 339
+        width: 184
+        height: 173
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 53c1a5994cedd6d4cb0d7864206ff063
-      internalID: -1702170517
+      spriteID: 2403e68a12194484496de0c64ede869b
+      internalID: 1360750667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ship
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 67
+        width: 459
+        height: 273
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5555beade9d73044da4b8486de801c77
+      internalID: 2050707131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Water
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 459
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee29510ad824ceb4ea3fb3b57db6e4a8
+      internalID: -1344018326
       vertices: []
       indices: 
       edges: []
@@ -196,7 +175,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6567eb42beb1efc4c888c750767504df
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -204,10 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Stone_0: -1095860491
-      Stone_1: -1127219786
-      Stone_2: -938349790
-      Stone_3: -1702170517
+      Haron: 1360750667
+      Ship: 2050707131
+      Water: -1344018326
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

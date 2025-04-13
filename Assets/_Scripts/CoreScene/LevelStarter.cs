@@ -66,7 +66,8 @@ namespace _Scripts.CoreScene
 
         public void StartLevel()
         {
-            m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[m_levelModel.NeedMoneyForPassenger.FindLastIndex(needMoney => needMoney < m_playerMoneyModel.Money)]);
+            m_levelModel.SetLevelSettings(m_levelsData.LevelSettingsMap[m_levelModel.NeedMoneyForPassenger.FindLastIndex(needMoney => needMoney <= m_playerMoneyModel.Money)]);
+            m_playerMoveController.SetBoard((int)m_levelModel.DifficultyLevel);
             
             m_playerMoveController.GoToTargetInstant(StartPlayerPosition);
             m_screenFadeController.AlphaTo(1, 0);
