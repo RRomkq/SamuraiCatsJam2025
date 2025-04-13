@@ -20,15 +20,17 @@ public class PlayerMoveController : MonoBehaviour
     private int m_currentLine = 1;
     private LevelModel m_levelModel;
     private FinishPirsController m_finishPirsController;
+    private GameModel m_gameModel;
 
     public event Action Click;
 
     [Inject]
-    public void Construct(LineHandler lineHandler, LevelModel levelModel, FinishPirsController finishPirsController)
+    public void Construct(LineHandler lineHandler, LevelModel levelModel, FinishPirsController finishPirsController, GameModel gameModel)
     {
         m_lineHandler = lineHandler;
         m_levelModel = levelModel;
         m_finishPirsController = finishPirsController;
+        m_gameModel = gameModel;
     }
 
     private void Awake()
@@ -44,7 +46,7 @@ public class PlayerMoveController : MonoBehaviour
     {
         int index = m_currentLine + i;
 
-        if (index < 0 || index >= m_lineHandler.HaronLines.Count)
+        if (index < 0 || index >= m_lineHandler.HaronLines.Count || m_gameModel.ShipState != ShipState.Swimming)
         {
             return;
         }

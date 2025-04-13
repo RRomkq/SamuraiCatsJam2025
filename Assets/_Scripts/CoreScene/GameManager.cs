@@ -20,8 +20,14 @@ namespace _Scripts.CoreScene
         private AvitoWindowController m_avitoWindowController;
         private CameraController m_cameraController;
         private GroundController m_groundController;
-        
-        public ShipState ShipState { get; set; }
+        private GameModel m_gameModel;
+
+        public ShipState ShipState
+        {
+            get => m_gameModel.ShipState;
+            set => m_gameModel.ShipState = value;
+        }
+
         public bool IsLastBarricadeComplete { get; set; } = false;
         
         public GameManager(LevelModel levelModel,
@@ -31,7 +37,8 @@ namespace _Scripts.CoreScene
             PlayerMoneyModel playerMoneyModel,
             AvitoWindowController avitoWindowController,
             CameraController cameraController,
-            GroundController groundController)
+            GroundController groundController,
+            GameModel gameModel)
         {
             m_levelModel = levelModel;
             m_letSpawner = letSpawner;
@@ -41,6 +48,7 @@ namespace _Scripts.CoreScene
             m_avitoWindowController = avitoWindowController;
             m_cameraController = cameraController;
             m_groundController = groundController;
+            m_gameModel = gameModel;
         }
         
         public void Initialize()
